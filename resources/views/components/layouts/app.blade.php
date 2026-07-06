@@ -11,7 +11,8 @@
     
     
     <div
-    class="flex flex-col min-h-screen"
+        class="flex flex-col min-h-screen"
+        x-data="{ isSticky: false }"
     {{-- class="flex flex-col md:flex-row h-screen overflow-hidden" --}}
     {{-- x-data="{ isExpanded: Alpine.$persist(true), userMenuExpand: false }" --}}
     >
