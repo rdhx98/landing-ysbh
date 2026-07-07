@@ -7,7 +7,7 @@
                     <img src="{{ asset('/ysbh.png') }}" alt="Logo YSBH" class="h-32 my-4">
                     <span class="font-black">Sinar Bhakti Husada</span>
                     {{-- <span>Berdedikasi untuk meningkatkan akses dan kualitas layanan kesehatan bagi masyarakat di seluruh Indonesia melalui bimbingan teknis dan program komprehensif</span> --}}
-                    <span>Yayasan kesehatan yang mendampingi ibu, anak, dan komunitas di wilayah terpencil Indonesia sejak 20xx.</span>
+                    <span>Yayasan kesehatan yang mendampingi ibu, anak, dan komunitas di wilayah terpencil Indonesia sejak 2014.</span>
     
     
                 </div>
@@ -33,7 +33,7 @@
                     Yayasan
                 </div>
                 <div class="flex flex-col justify-start items-start text-left gap-1">
-                    <a href="#"  class="hover:opacity-80 transition-opacity cursor-pointer capitalize">
+                    <a href="#" class="hover:opacity-80 hover:text-goldy transition-opacity cursor-pointer capitalize">
                         <span>Donasi</span>
                     </a>
                     <a href="#"  class="hover:opacity-80 transition-opacity cursor-pointer capitalize">

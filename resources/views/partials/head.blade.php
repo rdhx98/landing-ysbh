@@ -14,8 +14,12 @@
 
 
 
-<link rel="icon" href="logo/favicon.ico" sizes="any">
-<link rel="icon" href="logo/favicon.svg" type="image/svg+xml">
+{{-- <link rel="icon" href="logo/favicon.ico" sizes="any"> --}}
+{{-- <link rel="icon" href="logo/favicon.svg" type="image/svg+xml"> --}}
+{{-- <link rel="icon" href="logo/logo-ysbh-v2-diamond.svg" type="image/svg+xml"> --}}
+<link rel="icon" href="logo/emblem-sinar-bhakti-husada.svg" type="image/svg+xml">
+{{-- <link rel="icon" href="logo/sunburst-seal-sinar-bhakti-husada.svg" type="image/svg+xml"> --}}
+<link rel="apple-touch-icon" href="logo/apple-touch-icon.png">
 <link rel="apple-touch-icon" href="logo/apple-touch-icon.png">
 
 

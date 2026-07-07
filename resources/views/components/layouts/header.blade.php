@@ -1,14 +1,17 @@
-<aside>
+<header>
     <div x-data="{ isSticky: false }" 
         @scroll.window="isSticky = (window.scrollY >= $refs.contentStart.offsetTop)" 
         class="hidden md:flex md:relative w-full">
         <div class="flex flex-col w-full">
             <header class="shrink-0">
-                <div class="bg-white">
+                <div class="bg-paper">
                     <div class="flex flex-row justify-between items-stretch">
-                        <div class="mx-4 text-forest text-2xl flex items-center py-4">
-                            <img src="{{ asset('/ysbh.png') }}" alt="Logo YSBH" class="h-16 mr-8">
-                            <span class="text-forest font-black text-3xl ">Yayasan Sinar Bhakti Husada</span>
+                        <div class="mx-4 text-2xl flex items-center py-4">
+                            <img src="{{ asset('/ysbh.png') }}" alt="Logo YSBH" class="h-16 mr-4">
+                            <div class="flex flex-col items-start justify-center">
+                                <span class="text-forest font-fraunces text-3xl font-bold leading-[1.15]">Sinar Bhakti Husada</span>
+                                <span class="text-coral block font-jakarta font-semibold text-sm tracking-[0.14em] uppercase">Yayasan Kesehatan</span>
+                            </div>
                         </div>
                         <div class="mx-4 text-forest flex items-center">
                             <button 
@@ -22,7 +25,7 @@
                     </div>
                 </div>
                 
-                <div class="min-h-8 bg-white border-b-2 border-t-2 border-forest">
+                <div class="min-h-8 bg-paper border-b-2 border-t-2 border-forest">
                     <div class="flex flex-row justify-between items-stretch">
                         <div class="mx-4 text-forest text-lg flex items-center py-1.5">
                             {{-- <img src="{{ asset('/ysbh.png') }}" alt="Logo YSBH" class="h-8 mr-4">
@@ -30,7 +33,7 @@
                         </div>
                         <div class="mx-4 text-forest flex items-stretch">
                             @foreach ($navLinks as $link)
-                                <a wire:navigate href="{{ route($link['route']) }}" class="flex items-center border-y-4 mr-4 {{ request()->routeIs($link['route']) ? 'text-forest border-b-forest border-t-white' : 'text-forest hover:text-forest border-white' }}">{{ $link['label'] }}</a>
+                                <a wire:navigate href="{{ route($link['route']) }}" class="flex items-center border-y-4 mr-4 {{ request()->routeIs($link['route']) ? 'text-forest border-b-forest border-t-paper' : 'text-forest hover:text-forest border-paper' }}">{{ $link['label'] }}</a>
                                 
                             @endforeach
                         </div>
@@ -48,15 +51,15 @@
             x-transition:leave-start="translate-y-0"
             x-transition:leave-end="-translate-y-full"
             class="fixed top-0 inset-x-0 z-50 shadow-lg bg-white">
-            <div class="min-h-8 bg-white border-b-2 border-forest">
+            <div class="min-h-8 bg-paper border-b-2 border-forest">
                 <div class="flex flex-row justify-between items-stretch">
                     <div class="mx-4 text-forest text-lg flex items-center py-1.5">
                         <img src="{{ asset('/ysbh.png') }}" alt="Logo YSBH" class="h-8 mr-4">
-                        <span class="text-forest font-bold uppercase">Yayasan Sinar Bhakti Husada</span>
+                        <span class="text-forest font-bold uppercase font-jakarta tracking-[0.14em] leading-[1.15]">Sinar Bhakti Husada</span>
                     </div>
                     <div class="mx-4 text-forest flex items-stretch">
                         @foreach ($navLinks as $link)
-                                <a wire:navigate href="{{ route($link['route']) }}" class="flex items-center border-y-4 mr-4 {{ request()->routeIs($link['route']) ? 'text-forest border-b-forest border-t-white' : 'text-forest hover:text-forest border-white' }}">{{ $link['label'] }}</a>
+                                <a wire:navigate href="{{ route($link['route']) }}" class="flex items-center border-y-4 mr-4 {{ request()->routeIs($link['route']) ? 'text-forest border-b-forest border-t-paper' : 'text-forest hover:text-forest border-paper' }}">{{ $link['label'] }}</a>
                         @endforeach
                     </div>
                 </div>
@@ -155,4 +158,4 @@
             </div>
         </div>
     </div>
-</aside>
+</header>

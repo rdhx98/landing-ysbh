@@ -21,7 +21,7 @@
         {{-- <x-layouts::app.sidebar /> --}}
 
         {{-- <main class="flex-1 py-2 pr-2"> --}}
-        <main class="flex-1 
+        <main class="flex-1 bg-paper
         {{-- md:p-4  --}}
         overflow-y-auto h-full space-y-2">
             {{-- <x-layouts::app.header :title="$title ?? 'Nu uh'" /> --}}
