@@ -1,26 +1,47 @@
 <div class=" bg-forest text-white ">
     <div class="flex items-center justify-center">
         <div class="grid grid-cols-1 md:grid-cols-5 p-12 max-w-7xl">
-            <div class="flex flex-col justify-center items-center text-center p-4 col-span-3">
-                <div class="w-full flex flex-col justify-center items-start text-left gap-2">
+
+            <div class="flex flex-col justify-center items-center text-center p-4 md:col-span-2">
+                <div class="w-full flex flex-col justify-center md:items-start items-center text-left gap-2">
                     <img src="{{ asset('/ysbh.png') }}" alt="Logo YSBH" class="h-32 my-4">
-                    <span>Yayasan Sinar Bhakti Husada</span>
-                    <span>Berdedikasi untuk meningkatkan akses dan kualitas layanan kesehatan bagi masyarakat di seluruh Indonesia melalui bimbingan teknis dan program komprehensif</span>
+                    <span class="font-black">Sinar Bhakti Husada</span>
+                    {{-- <span>Berdedikasi untuk meningkatkan akses dan kualitas layanan kesehatan bagi masyarakat di seluruh Indonesia melalui bimbingan teknis dan program komprehensif</span> --}}
+                    <span>Yayasan kesehatan yang mendampingi ibu, anak, dan komunitas di wilayah terpencil Indonesia sejak 20xx.</span>
     
     
                 </div>
             </div>
             <div class="flex flex-col justify-start items-start text-left p-4">
                 <div class="text-2xl font-bold mb-3">
-                    Kartu Program
+                    Program
                 </div>
                 <div class="flex flex-col justify-start items-start text-left gap-1">
                     <a href="#"  class="hover:opacity-80 transition-opacity cursor-pointer">
                         <span>Kesehatan Ibu & Anak</span>
                     </a>
-                    <span>Malaria</span>
-                    <span>Kesehatan Ibu & Anak</span>
-                    <span>Imunisasi</span>
+                    <a href="#"  class="hover:opacity-80 transition-opacity cursor-pointer">
+                        <span>Malaria</span>
+                    </a>
+                    <a href="#"  class="hover:opacity-80 transition-opacity cursor-pointer">
+                        <span>Imunisasi</span>
+                    </a>
+                </div>
+            </div>
+            <div class="flex flex-col justify-start items-start text-left p-4">
+                <div class="text-2xl font-bold mb-3">
+                    Yayasan
+                </div>
+                <div class="flex flex-col justify-start items-start text-left gap-1">
+                    <a href="#"  class="hover:opacity-80 transition-opacity cursor-pointer capitalize">
+                        <span>Donasi</span>
+                    </a>
+                    <a href="#"  class="hover:opacity-80 transition-opacity cursor-pointer capitalize">
+                        <span>Jadi Relawan</span>
+                    </a>
+                    <a href="#"  class="hover:opacity-80 transition-opacity cursor-pointer capitalize">
+                        <span>Kerja sama program</span>
+                    </a>
                 </div>
             </div>
             <div class="flex flex-col justify-start items-start text-left p-4">
@@ -56,9 +77,9 @@
     </div>
     <div class="border-t-2 border-aurum w-full flex justify-between items-center "></div>
     <div class="flex items-center justify-center">
-        <div class="w-full py-4 px-16 flex justify-between items-center max-w-7xl ">
-            <span>Yayasan Sinar Bhakti Husada </span>
-            <span>&copy; {{ date('Y') }}</span>
+        <div class="w-full py-4 px-16 flex md:flex-row flex-col justify-between items-center max-w-7xl ">
+            <span>&copy; {{ date('Y') }} Yayasan Sinar Bhakti Husada</span>
+            <span>Dibuat dengan bhakti, untuk sinar yang terus menyala.</span>
         </div>
     </div>
 </div>

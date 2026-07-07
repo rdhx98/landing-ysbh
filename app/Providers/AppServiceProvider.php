@@ -28,8 +28,10 @@ class AppServiceProvider extends ServiceProvider
         // Data navigasi sentral
         $navLinks = [
             ['route' => 'home', 'label' => 'Beranda'],
-            ['route' => 'about', 'label' => 'Tentang'],
+            ['route' => 'programs', 'label' => 'Program'],
+            ['route' => 'articles', 'label' => 'Berita'],
             ['route' => 'contact', 'label' => 'Kontak'],
+            ['route' => 'about', 'label' => 'Tentang'],
         ];
 
         // Bagikan variabel ini ke semua file view (.blade.php)

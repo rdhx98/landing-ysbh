@@ -12,5 +12,6 @@
             lrem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.
         </div>
     </div>
+    
 
 </x-layouts.app>

@@ -3,9 +3,10 @@
         Halaman Beranda
     </x-slot>
 
+    {{-- style="background-image: url('{{ asset('/banner-1.webp') }}');" --}}
     <div class="flex flex-col items-center justify-center">
-        <div class="p-12 bg-aurum min-h-[80vh] w-full max-w-7xl flex items-start justify-start">
-            Header area
+        <div  class="bg-aurum p-12 min-h-[80vh] w-full flex items-start justify-start bg-cover bg-center bg-no-repeat w-full">
+            <div class="">Yayasan Sinar Bhakti Husada, berkomitmen untuk memberikan bimbingan teknis, pelatihan, dan pendampingan program kesehatan untuk membangun sistem layanan kesehatan yang tangguh di seluruh Indonesia.</div>
         </div>
         <div class="bg-coral-muted p-12 max-w-7xl " x-ref="contentStart">
             lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.    
