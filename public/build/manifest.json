@@ -1,0 +1,121 @@
+{
+  "_fonts-DkuEHybc.css": {
+    "file": "assets/fonts-DkuEHybc.css",
+    "src": "_fonts-DkuEHybc.css"
+  },
+  "_instrument-sans-400-normal-D1W7dsQl.woff": {
+    "file": "assets/instrument-sans-400-normal-D1W7dsQl.woff",
+    "src": "_instrument-sans-400-normal-D1W7dsQl.woff"
+  },
+  "_instrument-sans-400-normal-DRC__1Mx.woff2": {
+    "file": "assets/instrument-sans-400-normal-DRC__1Mx.woff2",
+    "src": "_instrument-sans-400-normal-DRC__1Mx.woff2"
+  },
+  "_instrument-sans-400-normal-Q_nF8v4l.woff2": {
+    "file": "assets/instrument-sans-400-normal-Q_nF8v4l.woff2",
+    "src": "_instrument-sans-400-normal-Q_nF8v4l.woff2"
+  },
+  "_instrument-sans-400-normal-r32jotim.woff": {
+    "file": "assets/instrument-sans-400-normal-r32jotim.woff",
+    "src": "_instrument-sans-400-normal-r32jotim.woff"
+  },
+  "_instrument-sans-500-normal-CAxz3nsc.woff": {
+    "file": "assets/instrument-sans-500-normal-CAxz3nsc.woff",
+    "src": "_instrument-sans-500-normal-CAxz3nsc.woff"
+  },
+  "_instrument-sans-500-normal-CTEe1bJa.woff2": {
+    "file": "assets/instrument-sans-500-normal-CTEe1bJa.woff2",
+    "src": "_instrument-sans-500-normal-CTEe1bJa.woff2"
+  },
+  "_instrument-sans-500-normal-Dk9ku72i.woff2": {
+    "file": "assets/instrument-sans-500-normal-Dk9ku72i.woff2",
+    "src": "_instrument-sans-500-normal-Dk9ku72i.woff2"
+  },
+  "_instrument-sans-500-normal-Z6ESRlEs.woff": {
+    "file": "assets/instrument-sans-500-normal-Z6ESRlEs.woff",
+    "src": "_instrument-sans-500-normal-Z6ESRlEs.woff"
+  },
+  "_instrument-sans-600-normal-B7fBEWYG.woff2": {
+    "file": "assets/instrument-sans-600-normal-B7fBEWYG.woff2",
+    "src": "_instrument-sans-600-normal-B7fBEWYG.woff2"
+  },
+  "_instrument-sans-600-normal-B9e8oLYv.woff": {
+    "file": "assets/instrument-sans-600-normal-B9e8oLYv.woff",
+    "src": "_instrument-sans-600-normal-B9e8oLYv.woff"
+  },
+  "_instrument-sans-600-normal-BsaQcF38.woff2": {
+    "file": "assets/instrument-sans-600-normal-BsaQcF38.woff2",
+    "src": "_instrument-sans-600-normal-BsaQcF38.woff2"
+  },
+  "_instrument-sans-600-normal-DMks36a2.woff": {
+    "file": "assets/instrument-sans-600-normal-DMks36a2.woff",
+    "src": "_instrument-sans-600-normal-DMks36a2.woff"
+  },
+  "public/fonts/fraunces/Fraunces_72pt-BlackItalic.ttf": {
+    "file": "assets/Fraunces_72pt-BlackItalic-Bj0gtUu4.ttf",
+    "src": "public/fonts/fraunces/Fraunces_72pt-BlackItalic.ttf"
+  },
+  "public/fonts/fraunces/Fraunces_72pt-Bold.ttf": {
+    "file": "assets/Fraunces_72pt-Bold-Ln121f8Z.ttf",
+    "src": "public/fonts/fraunces/Fraunces_72pt-Bold.ttf"
+  },
+  "public/fonts/fraunces/Fraunces_72pt-Italic.ttf": {
+    "file": "assets/Fraunces_72pt-Italic-YorvYEaA.ttf",
+    "src": "public/fonts/fraunces/Fraunces_72pt-Italic.ttf"
+  },
+  "public/fonts/fraunces/Fraunces_72pt-Regular.ttf": {
+    "file": "assets/Fraunces_72pt-Regular-Ds3jaZtC.ttf",
+    "src": "public/fonts/fraunces/Fraunces_72pt-Regular.ttf"
+  },
+  "public/fonts/fraunces/Fraunces_72pt-SemiBold.ttf": {
+    "file": "assets/Fraunces_72pt-SemiBold-CAXDT45e.ttf",
+    "src": "public/fonts/fraunces/Fraunces_72pt-SemiBold.ttf"
+  },
+  "public/fonts/plus-jakarta-sans/PlusJakartaSans-Bold.ttf": {
+    "file": "assets/PlusJakartaSans-Bold-C5aszj9T.ttf",
+    "src": "public/fonts/plus-jakarta-sans/PlusJakartaSans-Bold.ttf"
+  },
+  "public/fonts/plus-jakarta-sans/PlusJakartaSans-BoldItalic.ttf": {
+    "file": "assets/PlusJakartaSans-BoldItalic-BcDGTW1o.ttf",
+    "src": "public/fonts/plus-jakarta-sans/PlusJakartaSans-BoldItalic.ttf"
+  },
+  "public/fonts/plus-jakarta-sans/PlusJakartaSans-Italic.ttf": {
+    "file": "assets/PlusJakartaSans-Italic-CWihPloP.ttf",
+    "src": "public/fonts/plus-jakarta-sans/PlusJakartaSans-Italic.ttf"
+  },
+  "public/fonts/plus-jakarta-sans/PlusJakartaSans-Medium.ttf": {
+    "file": "assets/PlusJakartaSans-Medium-C2x3RLjU.ttf",
+    "src": "public/fonts/plus-jakarta-sans/PlusJakartaSans-Medium.ttf"
+  },
+  "public/fonts/plus-jakarta-sans/PlusJakartaSans-Regular.ttf": {
+    "file": "assets/PlusJakartaSans-Regular-C2UfmnDu.ttf",
+    "src": "public/fonts/plus-jakarta-sans/PlusJakartaSans-Regular.ttf"
+  },
+  "resources/css/app.css": {
+    "file": "assets/app-DCos6m8I.css",
+    "name": "app",
+    "names": [
+      "app.css"
+    ],
+    "src": "resources/css/app.css",
+    "isEntry": true,
+    "assets": [
+      "assets/PlusJakartaSans-Regular-C2UfmnDu.ttf",
+      "assets/PlusJakartaSans-Italic-CWihPloP.ttf",
+      "assets/PlusJakartaSans-Medium-C2x3RLjU.ttf",
+      "assets/PlusJakartaSans-Bold-C5aszj9T.ttf",
+      "assets/PlusJakartaSans-BoldItalic-BcDGTW1o.ttf",
+      "assets/Fraunces_72pt-Regular-Ds3jaZtC.ttf",
+      "assets/Fraunces_72pt-Italic-YorvYEaA.ttf",
+      "assets/Fraunces_72pt-SemiBold-CAXDT45e.ttf",
+      "assets/Fraunces_72pt-Bold-Ln121f8Z.ttf",
+      "assets/Fraunces_72pt-BlackItalic-Bj0gtUu4.ttf"
+    ]
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-BGSQy-u6.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true
+  }
+}
