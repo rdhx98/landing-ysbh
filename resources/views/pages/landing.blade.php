@@ -64,8 +64,8 @@
                             <line x1="203.6" y1="127.8" x2="249.8" y2="108.7" />
                         </g>
                         <circle cx="150" cy="150" r="92" class="fill-goldy"/>
-                        <circle cx="150" cy="150" r="92" class="fill-none stroke-forest opacity-15" stroke-width="2"/>
-                        <path d="M150 205C150 205 108 172 108 143C108 122 122 108 139 108C144.5 108 148 111 150 116C152 111 155.5 108 161 108C178 108 192 122 192 143C192 172 150 205 150 205Z" class="fill-forest"/>
+                        <circle cx="150" cy="150" r="92" class="fill-none stroke-foresty opacity-15" stroke-width="2"/>
+                        <path d="M150 205C150 205 108 172 108 143C108 122 122 108 139 108C144.5 108 148 111 150 116C152 111 155.5 108 161 108C178 108 192 122 192 143C192 172 150 205 150 205Z" class="fill-foresty"/>
                         <rect x="140" y="128" width="20" height="46" rx="3" class="fill-white"/>
                         <rect x="127" y="141" width="46" height="20" rx="3" class="fill-white"/>
                     </svg> --}}
@@ -96,7 +96,7 @@
                         <rect x="127" y="151" width="46" height="20" rx="3" class="fill-white"/>
                     </svg>
                 </div>
-            </div>    
+            </div>
         </section>
         <!-- ABOUT -->
         <section class="py-16 sm:py-24" id="tentang" x-ref="contentStart">
@@ -106,216 +106,26 @@
                     <svg viewBox="0 0 24 24" class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2"/></svg>
                     Tentang Kami
                     </span>
-                    <p class="font-display font-medium text-[26px] leading-[1.4] text-forest mt-4">"Sinar" berarti cahaya harapan. <em class="italic text-coral">"Bhakti"</em> berarti pengabdian. Keduanya menuntun setiap langkah kerja kami di lapangan.</p>
+                    <p class="font-display font-medium text-[26px] leading-[1.4] text-foresty mt-4">"Sinar" berarti cahaya harapan. <em class="italic text-coral">"Bhakti"</em> berarti pengabdian. Keduanya menuntun setiap langkah kerja kami di lapangan.</p>
                 </div>
                 <div class="reveal opacity-0 translate-y-6 transition-all duration-700 ease-out motion-reduce:transition-none">
                     <p class="text-ink-soft mb-4">Yayasan Sinar Bhakti Husada berdiri untuk menjawab satu masalah nyata: banyak keluarga di daerah terpencil Indonesia masih sulit menjangkau layanan kesehatan dasar. Kami hadir langsung di dusun dan desa, bekerja sama dengan puskesmas, kader posyandu, dan pemerintah setempat.</p>
                     <p class="text-ink-soft mb-4">Tiga program utama kami — kesehatan ibu &amp; anak, imunisasi, dan penanganan malaria — dipilih karena ketiganya adalah titik kritis yang paling menentukan masa depan sebuah keluarga, terutama di wilayah endemis seperti Nusa Tenggara Timur, Maluku, dan Papua.</p>
                     <div class="flex gap-7 mt-7 flex-wrap">
-                    <div><b class="block font-display text-[26px] text-forest">2014</b><span class="text-[13px] text-ink-soft">Tahun berdiri</span></div>
-                    <div><b class="block font-display text-[26px] text-forest">76</b><span class="text-[13px] text-ink-soft">Desa dampingan</span></div>
-                    <div><b class="block font-display text-[26px] text-forest">18</b><span class="text-[13px] text-ink-soft">Kabupaten tersebar</span></div>
-                    </div>
-                </div>
-            </div>
-        </section> 
-        <!-- PROGRAMS -->
-        <section class="py-16 sm:py-24 bg-mist w-full" id="program">
-            <div class="max-w-7xl mx-auto px-5 sm:px-8">
-                <div class=" mb-14 reveal opacity-0 translate-y-6 transition-all duration-700 ease-out motion-reduce:transition-none">
-                    <span class="inline-flex items-center gap-2.5 text-[13px] font-bold tracking-[0.16em] uppercase text-coral-dark">
-                    <svg viewBox="0 0 24 24" class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2"/></svg>
-                    Fokus Program
-                    </span>
-                    <h2 class="font-display font-semibold text-[clamp(1.9rem,3.2vw,2.6rem)] leading-[1.15] text-forest mt-3.5">Tiga Pilar yang Kami Jaga Bersama</h2>
-                    <p class="text-ink-soft text-[16.5px] mt-4">Bukan proyek satu kali jalan — tiga program ini berjalan berdampingan, saling menguatkan, di setiap desa dampingan kami.</p>
-                </div>
-
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-7">
-                    <div class="reveal opacity-0 translate-y-6 transition-all duration-700 ease-out motion-reduce:transition-none bg-white rounded-[28px] p-8 border border-forest/15 shadow-[0_20px_50px_-25px_rgba(6,45,35,0.35)] hover:-translate-y-1.5 transition-transform duration-300 flex flex-col">
-                    <div class="w-16 h-16 rounded-[18px] flex items-center justify-center mb-5 bg-gold-soft text-forest">
-                        <svg viewBox="0 0 24 24" class="w-[30px] h-[30px]" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.6-9.3-9.2C1.4 8.6 3 5 6.6 5c2 0 3.4 1.1 4.4 2.6C12 6.1 13.4 5 15.4 5 19 5 20.6 8.6 19.3 11.8 17 16.4 12 21 12 21z"/></svg>
-                    </div>
-                    <div class="text-xs font-bold tracking-[0.1em] uppercase mb-3.5 text-coral-dark">Kesehatan Ibu &amp; Anak</div>
-                    <h3 class="font-display text-[21px] font-semibold text-forest mb-2.5">Mendampingi Sejak dalam Kandungan</h3>
-                    <p class="text-ink-soft text-[15px] flex-1">Pemeriksaan kehamilan berkala, pendampingan persalinan aman bersama bidan desa, dan pemantauan tumbuh kembang balita hingga usia lima tahun.</p>
-                    <a href="#kontak" class="group mt-5 font-bold text-[14.5px] inline-flex items-center gap-1.5 text-forest">Selengkapnya
-                        <svg viewBox="0 0 24 24" class="w-[15px] h-[15px] transition-transform duration-200 group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-                    </a>
-                    </div>
-
-                    <div class="reveal opacity-0 translate-y-6 transition-all duration-700 ease-out motion-reduce:transition-none bg-white rounded-[28px] p-8 border border-forest/15 shadow-[0_20px_50px_-25px_rgba(6,45,35,0.35)] hover:-translate-y-1.5 transition-transform duration-300 flex flex-col">
-                    <div class="w-16 h-16 rounded-[18px] flex items-center justify-center mb-5 bg-mist text-forest">
-                        <svg viewBox="0 0 24 24" class="w-[30px] h-[30px]" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 6v6c0 5 3.4 8.7 8 10 4.6-1.3 8-5 8-10V6l-8-4Z"/><path d="M9 12l2 2 4-4"/></svg>
-                    </div>
-                    <div class="text-xs font-bold tracking-[0.1em] uppercase mb-3.5 text-forest-tint">Imunisasi</div>
-                    <h3 class="font-display text-[21px] font-semibold text-forest mb-2.5">Vaksin Lengkap, Sampai ke Pelosok</h3>
-                    <p class="text-ink-soft text-[15px] flex-1">Menjangkau anak-anak di dusun terpencil dengan imunisasi dasar lengkap, cold chain vaksin yang terjaga, serta edukasi rutin bagi orang tua.</p>
-                    <a href="#kontak" class="group mt-5 font-bold text-[14.5px] inline-flex items-center gap-1.5 text-forest">Selengkapnya
-                        <svg viewBox="0 0 24 24" class="w-[15px] h-[15px] transition-transform duration-200 group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-                    </a>
-                    </div>
-
-                    <div class="reveal opacity-0 translate-y-6 transition-all duration-700 ease-out motion-reduce:transition-none bg-white rounded-[28px] p-8 border border-forest/15 shadow-[0_20px_50px_-25px_rgba(6,45,35,0.35)] hover:-translate-y-1.5 transition-transform duration-300 flex flex-col">
-                    <div class="w-16 h-16 rounded-[18px] flex items-center justify-center mb-5 bg-[#FBE6E6] text-coral">
-                        <svg viewBox="0 0 24 24" class="w-[30px] h-[30px]" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20c3-6 13-6 16 0"/><circle cx="12" cy="9" r="5"/><path d="M9 9h6M12 6v6"/></svg>
-                    </div>
-                    <div class="text-xs font-bold tracking-[0.1em] uppercase mb-3.5 text-coral-dark">Penanganan Malaria</div>
-                    <h3 class="font-display text-[21px] font-semibold text-forest mb-2.5">Memutus Rantai Penularan</h3>
-                    <p class="text-ink-soft text-[15px] flex-1">Distribusi kelambu berinsektisida, tes cepat untuk deteksi dini, serta pengobatan tuntas bekerja sama dengan puskesmas di wilayah endemis.</p>
-                    <a href="#kontak" class="group mt-5 font-bold text-[14.5px] inline-flex items-center gap-1.5 text-forest">Selengkapnya
-                        <svg viewBox="0 0 24 24" class="w-[15px] h-[15px] transition-transform duration-200 group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-                    </a>
+                    <div><b class="block font-display text-[26px] text-foresty">2014</b><span class="text-[13px] text-ink-soft">Tahun berdiri</span></div>
+                    <div><b class="block font-display text-[26px] text-foresty">76</b><span class="text-[13px] text-ink-soft">Desa dampingan</span></div>
+                    <div><b class="block font-display text-[26px] text-foresty">18</b><span class="text-[13px] text-ink-soft">Kabupaten tersebar</span></div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- IMPACT -->
-        <section class="py-16 sm:py-24 bg-forest text-white w-full" id="dampak">
-            <div class="max-w-7xl mx-auto px-5 sm:px-8">
-                <div class="max-w-[640px] mb-14 reveal opacity-0 translate-y-6 transition-all duration-700 ease-out motion-reduce:transition-none">
-                    <span class="inline-flex items-center gap-2.5 text-[13px] font-bold tracking-[0.16em] uppercase text-gold">
-                    <svg viewBox="0 0 24 24" class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2"/></svg>
-                    Dampak Kami
-                    </span>
-                    <h2 class="font-display font-semibold text-[clamp(1.9rem,3.2vw,2.6rem)] leading-[1.15] text-white mt-3.5">Sejak 2014, Bersama Warga Dampingan</h2>
-                    <p class="text-white/75 text-[16.5px] mt-4">Angka-angka ini adalah hasil kerja bersama kader posyandu, bidan desa, relawan, dan tentu saja para donatur.</p>
-                </div>
-                <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="reveal opacity-0 translate-y-6 transition-all duration-700 ease-out motion-reduce:transition-none text-center px-4 py-[30px] border border-dashed border-white/[0.28] rounded-[18px]">
-                    <span class="font-display font-bold text-[clamp(2rem,4vw,2.6rem)] text-gold block">12.480</span>
-                    <span class="text-[13.5px] text-white/[0.78] mt-2 block">Ibu hamil didampingi</span>
-                    </div>
-                    <div class="reveal opacity-0 translate-y-6 transition-all duration-700 ease-out motion-reduce:transition-none text-center px-4 py-[30px] border border-dashed border-white/[0.28] rounded-[18px]">
-                    <span class="font-display font-bold text-[clamp(2rem,4vw,2.6rem)] text-gold block">34.900</span>
-                    <span class="text-[13.5px] text-white/[0.78] mt-2 block">Anak diimunisasi lengkap</span>
-                    </div>
-                    <div class="reveal opacity-0 translate-y-6 transition-all duration-700 ease-out motion-reduce:transition-none text-center px-4 py-[30px] border border-dashed border-white/[0.28] rounded-[18px]">
-                    <span class="font-display font-bold text-[clamp(2rem,4vw,2.6rem)] text-gold block">8.650</span>
-                    <span class="text-[13.5px] text-white/[0.78] mt-2 block">Kelambu anti-malaria dibagikan</span>
-                    </div>
-                    <div class="reveal opacity-0 translate-y-6 transition-all duration-700 ease-out motion-reduce:transition-none text-center px-4 py-[30px] border border-dashed border-white/[0.28] rounded-[18px]">
-                    <span class="font-display font-bold text-[clamp(2rem,4vw,2.6rem)] text-gold block">76</span>
-                    <span class="text-[13.5px] text-white/[0.78] mt-2 block">Desa wilayah dampingan</span>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <x-cards.programs />
+        <x-cards.impact />
+        <x-cards.testimonials />
+        <x-cards.cta />
+        <x-cards.contact />
 
-        <!-- TESTIMONIALS -->
-        <section class="py-16 sm:py-24 w-full" id="cerita">
-            <div class="max-w-7xl mx-auto px-5 sm:px-8">
-                <div class="max-w-[640px] mb-14 reveal opacity-0 translate-y-6 transition-all duration-700 ease-out motion-reduce:transition-none">
-                    <span class="inline-flex items-center gap-2.5 text-[13px] font-bold tracking-[0.16em] uppercase text-coral-dark">
-                    <svg viewBox="0 0 24 24" class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2"/></svg>
-                    Cerita dari Lapangan
-                    </span>
-                    <h2 class="font-display font-semibold text-[clamp(1.9rem,3.2vw,2.6rem)] leading-[1.15] text-forest mt-3.5">Suara Mereka yang Kami Dampingi</h2>
-                </div>
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                    <div class="reveal opacity-0 translate-y-6 transition-all duration-700 ease-out motion-reduce:transition-none bg-white rounded-[18px] py-[30px] px-7 border border-forest/15 relative">
-                    <svg class="w-[30px] h-[30px] text-gold mb-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M7 7C4.8 7 3 8.8 3 11c0 2.2 1.8 4 4 4 .3 0 .6 0 .9-.1C7.3 17 6 18.5 4 19v2c4-.5 7-3.3 7-7.5V11c0-2.2-1.8-4-4-4zm10 0c-2.2 0-4 1.8-4 4 0 2.2 1.8 4 4 4 .3 0 .6 0 .9-.1-.6 2.1-1.9 3.6-3.9 4.1v2c4-.5 7-3.3 7-7.5V11c0-2.2-1.8-4-4-4z"/></svg>
-                    <p class="font-display italic text-[17px] text-forest leading-[1.5] mb-5">Kader posyandu di kampung kami jadi lebih percaya diri mendampingi ibu hamil sejak ada pelatihan rutin dari yayasan.</p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-[42px] h-[42px] rounded-full bg-mist flex items-center justify-center text-forest font-display font-bold shrink-0">SW</div>
-                        <div><div class="font-bold text-[14.5px] text-ink">Sri Wahyuni</div><div class="text-[13px] text-ink-soft">Kader Posyandu, Sikka · NTT</div></div>
-                    </div>
-                    </div>
-                    <div class="reveal opacity-0 translate-y-6 transition-all duration-700 ease-out motion-reduce:transition-none bg-white rounded-[18px] py-[30px] px-7 border border-forest/15 relative">
-                    <svg class="w-[30px] h-[30px] text-gold mb-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M7 7C4.8 7 3 8.8 3 11c0 2.2 1.8 4 4 4 .3 0 .6 0 .9-.1C7.3 17 6 18.5 4 19v2c4-.5 7-3.3 7-7.5V11c0-2.2-1.8-4-4-4zm10 0c-2.2 0-4 1.8-4 4 0 2.2 1.8 4 4 4 .3 0 .6 0 .9-.1-.6 2.1-1.9 3.6-3.9 4.1v2c4-.5 7-3.3 7-7.5V11c0-2.2-1.8-4-4-4z"/></svg>
-                    <p class="font-display italic text-[17px] text-forest leading-[1.5] mb-5">Anak saya sekarang lengkap imunisasinya. Petugas datang langsung ke dusun, kami tidak perlu jalan jauh lagi.</p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-[42px] h-[42px] rounded-full bg-mist flex items-center justify-center text-forest font-display font-bold shrink-0">F</div>
-                        <div><div class="font-bold text-[14.5px] text-ink">Fatimah</div><div class="text-[13px] text-ink-soft">Warga, Waepana · Manggarai</div></div>
-                    </div>
-                    </div>
-                    <div class="reveal opacity-0 translate-y-6 transition-all duration-700 ease-out motion-reduce:transition-none bg-white rounded-[18px] py-[30px] px-7 border border-forest/15 relative">
-                    <svg class="w-[30px] h-[30px] text-gold mb-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M7 7C4.8 7 3 8.8 3 11c0 2.2 1.8 4 4 4 .3 0 .6 0 .9-.1C7.3 17 6 18.5 4 19v2c4-.5 7-3.3 7-7.5V11c0-2.2-1.8-4-4-4zm10 0c-2.2 0-4 1.8-4 4 0 2.2 1.8 4 4 4 .3 0 .6 0 .9-.1-.6 2.1-1.9 3.6-3.9 4.1v2c4-.5 7-3.3 7-7.5V11c0-2.2-1.8-4-4-4z"/></svg>
-                    <p class="font-display italic text-[17px] text-forest leading-[1.5] mb-5">Sejak dapat kelambu dan edukasi rutin, kasus malaria di dusun kami turun jauh dibanding tiga tahun lalu.</p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-[42px] h-[42px] rounded-full bg-mist flex items-center justify-center text-forest font-display font-bold shrink-0">YB</div>
-                        <div><div class="font-bold text-[14.5px] text-ink">Yosef Bunga</div><div class="text-[13px] text-ink-soft">Kepala Dusun, Sumba Timur</div></div>
-                    </div>
-                    </div>
-                </div>
-                <p class="text-xs text-ink-soft mt-6">*Cerita di atas adalah contoh ilustratif — mudah diganti dengan testimoni asli dari penerima manfaat Anda.</p>
-            </div>
-        </section>
-
-        <!-- DONATION CTA -->
-        <section class="py-16 sm:py-24 bg-coral text-white relative overflow-hidden w-full" id="donasi">
-            <div class="absolute top-1/2 -right-20 -translate-y-1/2 opacity-[0.15] w-[520px] h-[520px]" aria-hidden="true">
-                <svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
-                    <g class="stroke-white origin-[150px_150px] animate-spin-slower motion-reduce:animate-none" stroke-width="7" stroke-linecap="round">
-                    <line x1="208.0" y1="150.0" x2="288.0" y2="150.0" /><line x1="203.6" y1="172.2" x2="249.8" y2="191.3" />
-                    <line x1="191.0" y1="191.0" x2="247.6" y2="247.6" /><line x1="172.2" y1="203.6" x2="191.3" y2="249.8" />
-                    <line x1="150.0" y1="208.0" x2="150.0" y2="288.0" /><line x1="127.8" y1="203.6" x2="108.7" y2="249.8" />
-                    <line x1="109.0" y1="191.0" x2="52.4" y2="247.6" /><line x1="96.4" y1="172.2" x2="50.2" y2="191.3" />
-                    <line x1="92.0" y1="150.0" x2="12.0" y2="150.0" /><line x1="96.4" y1="127.8" x2="50.2" y2="108.7" />
-                    <line x1="109.0" y1="109.0" x2="52.4" y2="52.4" /><line x1="127.8" y1="96.4" x2="108.7" y2="50.2" />
-                    <line x1="150.0" y1="92.0" x2="150.0" y2="12.0" /><line x1="172.2" y1="96.4" x2="191.3" y2="50.2" />
-                    <line x1="191.0" y1="109.0" x2="247.6" y2="52.4" /><line x1="203.6" y1="127.8" x2="249.8" y2="108.7" />
-                    </g>
-                </svg>
-            </div>
-            <div class="max-w-7xl mx-auto px-5 sm:px-8 grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-12 items-center relative z-[2]">
-                <div class="reveal opacity-0 translate-y-6 transition-all duration-700 ease-out motion-reduce:transition-none">
-                    <h2 class="font-display font-semibold text-[clamp(1.9rem,3.4vw,2.5rem)] leading-[1.15] text-white">Setiap Sumbangan Adalah Sinar Baru</h2>
-                    <p class="text-white/[0.88] text-[16.5px] mt-4 mb-7 max-w-[460px]">Rp150.000 dapat menyediakan satu kelambu anti-malaria. Rp500.000 dapat mendampingi satu ibu hamil selama satu bulan penuh. Bergabunglah dengan kami.</p>
-                    <div class="flex gap-4 flex-wrap">
-                    <a href="#kontak" class="inline-flex items-center justify-center gap-2 font-bold text-[15.5px] px-7 py-3.5 rounded-full border-2 border-transparent bg-white text-forest hover:-translate-y-0.5 hover:shadow-[0_14px_28px_-14px_rgba(0,0,0,0.35)] transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-forest-dark focus-visible:outline-offset-[3px]">Donasi via Transfer</a>
-                    <a href="#kontak" class="inline-flex items-center justify-center gap-2 font-bold text-[15.5px] px-7 py-3.5 rounded-full border-2 border-white/60 bg-transparent text-white hover:bg-white/10 hover:border-white transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-[3px]">Jadi Relawan</a>
-                    </div>
-                </div>
-                <div class="reveal opacity-0 translate-y-6 transition-all duration-700 ease-out motion-reduce:transition-none bg-white/10 border border-white/30 rounded-[18px] px-7 py-6.5 backdrop-blur-sm">
-                    <div class="text-xs tracking-[0.1em] uppercase text-white/75 mb-2">Transfer Bank</div>
-                    <div id="acctNumber" class="font-display text-[22px] font-semibold mb-1">BCA · 123 4567 890</div>
-                    <div class="text-sm text-white/85 mb-4">a.n. Yayasan Sinar Bhakti Husada</div>
-                    <button id="copyBtn" class="bg-white text-coral border-0 rounded-full px-[18px] py-[9px] font-bold text-[13.5px] cursor-pointer hover:bg-white/90 transition-colors">Salin Nomor Rekening</button>
-                </div>
-            </div>
-        </section>
-
-        <!-- CONTACT -->
-        <section class="py-16 sm:py-24 w-full" id="kontak">
-            <div class="max-w-7xl mx-auto px-5 sm:px-8">
-                <div class="max-w-[640px] mb-14 reveal opacity-0 translate-y-6 transition-all duration-700 ease-out motion-reduce:transition-none">
-                    <span class="inline-flex items-center gap-2.5 text-[13px] font-bold tracking-[0.16em] uppercase text-coral-dark">
-                    <svg viewBox="0 0 24 24" class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2"/></svg>
-                    Hubungi Kami
-                    </span>
-                    <h2 class="font-display font-semibold text-[clamp(1.9rem,3.2vw,2.6rem)] leading-[1.15] text-forest mt-3.5">Mari Berbincang atau Berkunjung</h2>
-                    <p class="text-ink-soft text-[16.5px] mt-4">Untuk kerja sama program, kunjungan lapangan, atau pertanyaan seputar donasi.</p>
-                </div>  
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-9 lg:gap-14">
-                    <div class="reveal opacity-0 translate-y-6 transition-all duration-700 ease-out motion-reduce:transition-none">
-                    <div class="flex gap-4 mb-[26px]">
-                        <div class="w-[46px] h-[46px] rounded-[14px] bg-white border border-forest/15 flex items-center justify-center shrink-0 text-forest">
-                        <svg viewBox="0 0 24 24" class="w-[21px] h-[21px]" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Z"/><path d="m22 6-10 7L2 6"/></svg>
-                        </div>
-                        <div><div class="font-bold text-[14.5px] text-forest mb-[3px]">Email</div><div class="text-[14.5px] text-ink-soft">kontak@sinarbhaktihusada.org</div></div>
-                    </div>
-                    <div class="flex gap-4 mb-[26px]">
-                        <div class="w-[46px] h-[46px] rounded-[14px] bg-white border border-forest/15 flex items-center justify-center shrink-0 text-forest">
-                        <svg viewBox="0 0 24 24" class="w-[21px] h-[21px]" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.9.6 2.8a2 2 0 0 1-.5 2.1L7.9 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.8.6a2 2 0 0 1 1.7 2Z"/></svg>
-                        </div>
-                        <div><div class="font-bold text-[14.5px] text-forest mb-[3px]">Telepon / WhatsApp</div><div class="text-[14.5px] text-ink-soft">+62 812-3456-7890</div></div>
-                    </div>
-                    <div class="flex gap-4 mb-[26px]">
-                        <div class="w-[46px] h-[46px] rounded-[14px] bg-white border border-forest/15 flex items-center justify-center shrink-0 text-forest">
-                        <svg viewBox="0 0 24 24" class="w-[21px] h-[21px]" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-                        </div>
-                        <div><div class="font-bold text-[14.5px] text-forest mb-[3px]">Kantor Sekretariat</div><div class="text-[14.5px] text-ink-soft">Jl. Melati No. 21, Kupang, Nusa Tenggara Timur</div></div>
-                    </div>
-                    </div>
-                    <div class="reveal opacity-0 translate-y-6 transition-all duration-700 ease-out motion-reduce:transition-none rounded-[18px] overflow-hidden border border-forest/15 min-h-[280px] h-full bg-paper-dim flex items-center justify-center text-ink-soft text-sm">
-                    Peta lokasi kantor dapat ditambahkan di sini
-                    </div>
-                </div>
-            </div>
-        </section>
-        
         {{-- DIVIDER --}}
 
     </div>
