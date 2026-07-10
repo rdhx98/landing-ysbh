@@ -99,7 +99,7 @@
             </div>
         </section>
         <!-- ABOUT -->
-        <section class="py-16 sm:py-24" id="tentang" x-ref="contentStart">
+        <section class="py-16 sm:py-24" id="contentStart">
             <div class="max-w-7xl mx-auto px-5 sm:px-8 grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-9 lg:gap-16 items-start">
                 <div class="reveal opacity-0 translate-y-6 transition-all duration-700 ease-out motion-reduce:transition-none">
                     <span class="inline-flex items-center gap-2.5 text-[13px] font-bold tracking-[0.16em] uppercase text-coral-dark">
