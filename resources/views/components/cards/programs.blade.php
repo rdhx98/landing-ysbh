@@ -30,7 +30,7 @@
                 <div class="text-xs font-bold tracking-[0.1em] uppercase mb-3.5 text-foresty-tint">Imunisasi</div>
                 <h3 class="font-display text-[21px] font-semibold text-foresty mb-2.5">Vaksin Lengkap, Sampai ke Pelosok</h3>
                 <p class="text-ink-soft text-[15px] flex-1">Menjangkau anak-anak di dusun terpencil dengan imunisasi dasar lengkap, cold chain vaksin yang terjaga, serta edukasi rutin bagi orang tua.</p>
-                <a href="#kontak" class="group mt-5 font-bold text-[14.5px] inline-flex items-center gap-1.5 text-foresty">Selengkapnya
+                <a href="{{ route('programs-imunisasi') }}" wire:navigate class="group mt-5 font-bold text-[14.5px] inline-flex items-center gap-1.5 text-foresty">Selengkapnya
                     <svg viewBox="0 0 24 24" class="w-[15px] h-[15px] transition-transform duration-200 group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
                 </a>
             </div>

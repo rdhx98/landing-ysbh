@@ -1,6 +1,6 @@
 <x-layouts.app>
     <x-slot:title>
-        Program Penanganan Malaria — Yayasan Sinar Bhakti Husada
+        Malaria
     </x-slot:Title>
 
     <section class="pt-12 pb-10 sm:pt-12 sm:pb-10">

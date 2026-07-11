@@ -1,6 +1,6 @@
 <x-layouts.app>
     <x-slot:title>
-        Program Penanganan Malaria — Yayasan Sinar Bhakti Husada
+        Kesehatan Ibu & Anak (KIA)
     </x-slot:title>
 
     <!-- BREADCRUMB + HERO -->
@@ -15,7 +15,7 @@
             </div>
 
             <div class="reveal opacity-0 translate-y-6 transition-all duration-700 ease-out motion-reduce:transition-none">
-                <div class="w-[72px] h-[72px] rounded-[22px] bg-gold-soft text-forest flex items-center justify-center mb-[22px]">
+                <div class="w-[72px] h-[72px] rounded-[22px] bg-goldy-soft text-forest flex items-center justify-center mb-[22px]">
                     <svg class="w-[34px] h-[34px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.6-9.3-9.2C1.4 8.6 3 5 6.6 5c2 0 3.4 1.1 4.4 2.6C12 6.1 13.4 5 15.4 5 19 5 20.6 8.6 19.3 11.8 17 16.4 12 21 12 21z"/></svg>
                 </div>
                 <span class="inline-flex items-center gap-2.5 text-[13px] font-bold tracking-[0.16em] uppercase text-coral-dark">
@@ -65,19 +65,19 @@
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
                 <div class="reveal opacity-0 translate-y-6 transition-all duration-700 ease-out motion-reduce:transition-none bg-white rounded-[18px] p-[26px_22px] border border-forest/15 shadow-[0_20px_50px_-25px_rgba(6,45,35,0.35)]">
-                    <div class="font-display font-bold text-[22px] text-gold mb-3">01</div>
+                    <div class="font-display font-bold text-[22px] text-goldy mb-3">01</div>
                     <h3 class="text-[16.5px] font-semibold leading-[1.3] text-forest">Perawatan Ibu Hamil dan Bayi Baru Lahir</h3>
                 </div>
                 <div class="reveal opacity-0 translate-y-6 transition-all duration-700 ease-out motion-reduce:transition-none bg-white rounded-[18px] p-[26px_22px] border border-forest/15 shadow-[0_20px_50px_-25px_rgba(6,45,35,0.35)]">
-                    <div class="font-display font-bold text-[22px] text-gold mb-3">02</div>
+                    <div class="font-display font-bold text-[22px] text-goldy mb-3">02</div>
                     <h3 class="text-[16.5px] font-semibold leading-[1.3] text-forest">Kesehatan dan Gizi Anak</h3>
                 </div>
                 <div class="reveal opacity-0 translate-y-6 transition-all duration-700 ease-out motion-reduce:transition-none bg-white rounded-[18px] p-[26px_22px] border border-forest/15 shadow-[0_20px_50px_-25px_rgba(6,45,35,0.35)]">
-                    <div class="font-display font-bold text-[22px] text-gold mb-3">03</div>
+                    <div class="font-display font-bold text-[22px] text-goldy mb-3">03</div>
                     <h3 class="text-[16.5px] font-semibold leading-[1.3] text-forest">Penguatan Sistem Kesehatan Berbasis Komunitas</h3>
                 </div>
                 <div class="reveal opacity-0 translate-y-6 transition-all duration-700 ease-out motion-reduce:transition-none bg-white rounded-[18px] p-[26px_22px] border border-forest/15 shadow-[0_20px_50px_-25px_rgba(6,45,35,0.35)]">
-                    <div class="font-display font-bold text-[22px] text-gold mb-3">04</div>
+                    <div class="font-display font-bold text-[22px] text-goldy mb-3">04</div>
                     <h3 class="text-[16.5px] font-semibold leading-[1.3] text-forest">Kesehatan dalam Keadaan Darurat</h3>
                 </div>
             </div>
@@ -96,7 +96,7 @@
             </div>
 
             <div class="reveal opacity-0 translate-y-6 transition-all duration-700 ease-out motion-reduce:transition-none rounded-[28px] p-8 border border-forest/15 bg-white shadow-[0_20px_50px_-25px_rgba(6,45,35,0.35)]">
-                <div class="inline-flex items-center gap-2 text-[12.5px] font-bold tracking-[0.08em] uppercase px-3.5 py-1.5 rounded-full mb-4.5 bg-gold-soft text-forest">3 Provinsi · 9 Kabupaten</div>
+                <div class="inline-flex items-center gap-2 text-[12.5px] font-bold tracking-[0.08em] uppercase px-3.5 py-1.5 rounded-full mb-4.5 bg-goldy-soft text-forest">3 Provinsi · 9 Kabupaten</div>
 
                 <div class="text-[13px] font-bold text-ink-soft uppercase tracking-[0.06em] mt-1 mb-2.5">Papua</div>
                 <div class="flex flex-wrap gap-2">
@@ -190,25 +190,25 @@
                     <img src="{{ asset('images/kia-child-1.jpg') }}" alt="Kesehatan anak" class="w-full rounded-[18px] shadow-[0_20px_50px_-25px_rgba(6,45,35,0.35)] object-cover">
                 </div>
                 <div class="text-ink-soft space-y-4">
-                    <p>Pneumonia dan diare terus menjadi ancaman infeksi terbesar bagi kesehatan dan kelangsungan hidup bayi serta anak-anak di seluruh dunia. Berdasarkan data WHO dan <a href="https://publichealth.jhu.edu/ivac/2024/tracking-progress-toward-pneumonia-and-diarrhea-control" target="_blank" rel="noopener" class="text-forest font-bold underline decoration-gold underline-offset-4">Laporan Progress IVAC</a>, kombinasi kedua penyakit ini menyumbang sekitar 23% dari total kematian balita — setara 1,17 juta kematian anak di bawah lima tahun setiap tahunnya. Statistik UNICEF mengonfirmasi pneumonia secara mandiri merenggut nyawa lebih dari 700.000 anak per tahun, menjadikannya penyakit infeksi paling mematikan bagi balita di tingkat global.</p>
+                    <p>Pneumonia dan diare terus menjadi ancaman infeksi terbesar bagi kesehatan dan kelangsungan hidup bayi serta anak-anak di seluruh dunia. Berdasarkan data WHO dan <a href="https://publichealth.jhu.edu/ivac/2024/tracking-progress-toward-pneumonia-and-diarrhea-control" target="_blank" rel="noopener" class="text-forest font-bold underline decoration-goldy underline-offset-4">Laporan Progress IVAC</a>, kombinasi kedua penyakit ini menyumbang sekitar 23% dari total kematian balita — setara 1,17 juta kematian anak di bawah lima tahun setiap tahunnya. Statistik UNICEF mengonfirmasi pneumonia secara mandiri merenggut nyawa lebih dari 700.000 anak per tahun, menjadikannya penyakit infeksi paling mematikan bagi balita di tingkat global.</p>
                 </div>
             </div>
 
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 my-6">
                 <div class="reveal opacity-0 translate-y-6 transition-all duration-700 ease-out motion-reduce:transition-none text-center bg-forest rounded-[18px] p-[22px_14px]">
-                    <span class="font-display font-bold text-[clamp(1.4rem,2.6vw,1.9rem)] text-gold block">23%</span>
+                    <span class="font-display font-bold text-[clamp(1.4rem,2.6vw,1.9rem)] text-goldy block">23%</span>
                     <span class="text-[12px] text-white/80 mt-1.5 block leading-[1.4]">dari total kematian balita global</span>
                 </div>
                 <div class="reveal opacity-0 translate-y-6 transition-all duration-700 ease-out motion-reduce:transition-none text-center bg-forest rounded-[18px] p-[22px_14px]">
-                    <span class="font-display font-bold text-[clamp(1.4rem,2.6vw,1.9rem)] text-gold block">1,17 juta</span>
+                    <span class="font-display font-bold text-[clamp(1.4rem,2.6vw,1.9rem)] text-goldy block">1,17 juta</span>
                     <span class="text-[12px] text-white/80 mt-1.5 block leading-[1.4]">kematian anak balita per tahun</span>
                 </div>
                 <div class="reveal opacity-0 translate-y-6 transition-all duration-700 ease-out motion-reduce:transition-none text-center bg-forest rounded-[18px] p-[22px_14px]">
-                    <span class="font-display font-bold text-[clamp(1.4rem,2.6vw,1.9rem)] text-gold block">700rb+</span>
+                    <span class="font-display font-bold text-[clamp(1.4rem,2.6vw,1.9rem)] text-goldy block">700rb+</span>
                     <span class="text-[12px] text-white/80 mt-1.5 block leading-[1.4]">kematian akibat pneumonia per tahun</span>
                 </div>
                 <div class="reveal opacity-0 translate-y-6 transition-all duration-700 ease-out motion-reduce:transition-none text-center bg-forest rounded-[18px] p-[22px_14px]">
-                    <span class="font-display font-bold text-[clamp(1.4rem,2.6vw,1.9rem)] text-gold block">19,83</span>
+                    <span class="font-display font-bold text-[clamp(1.4rem,2.6vw,1.9rem)] text-goldy block">19,83</span>
                     <span class="text-[12px] text-white/80 mt-1.5 block leading-[1.4]">AKBa nasional per 1.000 kelahiran (target SDG: 25)</span>
                 </div>
             </div>
@@ -218,7 +218,7 @@
                     <img src="{{ asset('images/kia-child-2.jpg') }}" alt="Pendampingan pemerintah daerah untuk kesehatan anak" class="w-full rounded-[18px] shadow-[0_20px_50px_-25px_rgba(6,45,35,0.35)] object-cover">
                 </div>
                 <div class="text-ink-soft space-y-4">
-                    <p>Di Indonesia, tren serupa menempatkan pneumonia sebagai penyebab utama kematian pada kelompok anak balita, diikuti ketat oleh diare. Berdasarkan <a href="https://kesprimkom.kemkes.go.id/assets/uploads/contents/others/LAKIP_DITJEN_Kesprimkom_TAHUN_2025_semester_1.pdf" target="_blank" rel="noopener" class="text-forest font-bold underline decoration-gold underline-offset-4">Laporan Akuntabilitas Kemenkes</a>, Angka Kematian Balita (AKBa) nasional telah ditekan hingga 19,83 per 1.000 kelahiran hidup — melampaui ambang batas target global SDGs 2030 sebesar 25 per 1.000 kelahiran hidup.</p>
+                    <p>Di Indonesia, tren serupa menempatkan pneumonia sebagai penyebab utama kematian pada kelompok anak balita, diikuti ketat oleh diare. Berdasarkan <a href="https://kesprimkom.kemkes.go.id/assets/uploads/contents/others/LAKIP_DITJEN_Kesprimkom_TAHUN_2025_semester_1.pdf" target="_blank" rel="noopener" class="text-forest font-bold underline decoration-goldy underline-offset-4">Laporan Akuntabilitas Kemenkes</a>, Angka Kematian Balita (AKBa) nasional telah ditekan hingga 19,83 per 1.000 kelahiran hidup — melampaui ambang batas target global SDGs 2030 sebesar 25 per 1.000 kelahiran hidup.</p>
                     <p>Yayasan Sinar Bhakti Husada memberikan bantuan teknis kepada pemerintah daerah untuk mengembangkan Peraturan Gubernur/Bupati beserta Rencana Aksi Daerah (RAD) Penanggulangan Pneumonia dan Diare, serta peningkatan kapasitas tenaga kesehatan dalam melaksanakan Manajemen Terpadu Balita Sakit (MTBS) dan Kalakarya MTBS, maupun pengembangan kapasitas kader dalam melaksanakan MTBS berbasis masyarakat (MTBS-M) yang dipayungi oleh Permenkes No. 70/2013 dan Permenkes No. 41/2018.</p>
                 </div>
             </div>
