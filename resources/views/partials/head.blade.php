@@ -9,7 +9,7 @@
     <title>
         {{ filled($title ?? null) ? $title.' | '.config('app.name', 'Laravel') : config('app.name', 'Laravel') }}
     </title>
-
+PQ
 @endif
 
 
