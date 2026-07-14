@@ -92,7 +92,7 @@
     "src": "public/fonts/plus-jakarta-sans/PlusJakartaSans-Regular.ttf"
   },
   "resources/css/app.css": {
-    "file": "assets/app-DCos6m8I.css",
+    "file": "assets/app-CObgr4ei.css",
     "name": "app",
     "names": [
       "app.css"
@@ -113,7 +113,7 @@
     ]
   },
   "resources/js/app.js": {
-    "file": "assets/app-BGSQy-u6.js",
+    "file": "assets/app-SdCSijIQ.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true

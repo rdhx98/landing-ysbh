@@ -29,7 +29,9 @@ class AppServiceProvider extends ServiceProvider
         $navLinks = [
             ['route' => 'home', 'label' => 'Beranda'],
             ['route' => 'programs', 'label' => 'Program'],
-            ['route' => 'articles', 'label' => 'Berita'],
+            // ['route' => 'articles', 'label' => 'Berita'],
+            ['route' => 'transparancy', 'label' => 'Transparansi'],
+            ['route' => 'credibility', 'label' => 'Kredibilitas'],
             ['route' => 'contact', 'label' => 'Kontak'],
             ['route' => 'about', 'label' => 'Tentang'],
         ];
