@@ -49,7 +49,7 @@
         <div class="text-center py-7 px-4 border border-dashed border-white/25 rounded-[18px] reveal"><span class="font-serif text-[clamp(2rem,4vw,2.6rem)] font-bold text-goldy block">16+</span><span class="text-[13.5px] text-white/80 mt-2 block">Kabupaten endemis malaria didampingi</span></div>
       </div>
       <p class="text-center mt-7">
-        <a href="dampak-sinar-bhakti-husada.html" class="text-goldy font-bold text-[14.5px] underline underline-offset-4 hover:text-goldy-soft transition-colors">Lihat rincian dampak lengkap per tahun →</a>
+        <a href="{{ route('impact') }}" class="text-goldy font-bold text-[14.5px] underline underline-offset-4 hover:text-goldy-soft transition-colors">Lihat rincian dampak lengkap per tahun →</a>
       </p>
     </div>
   </section>

@@ -1,7 +1,7 @@
 <x-layouts.app>
     <x-slot:title>
         Imunisasi
-    </x-slot>
+    </x-slot:title>
 
     <!-- BREADCRUMB + HERO -->
     <section class="pt-12 pb-10 sm:pt-12 sm:pb-10">
