@@ -270,6 +270,18 @@
   :focus-visible{ outline:3px solid var(--coral); outline-offset:3px; }
 </style> --}}
 
+@php
+    // Ambil warna dari DB, gunakan #FBF7EA jika belum diset
+    $landingBg = \App\Models\Setting::where('key', 'landing_bg_color')->value('value') ?? '#FBF7EA';
+@endphp
+
+<style>
+    :root {
+        /* Menimpa warna CSS di Tailwind dengan pilihan dari CMS */
+        --color-paper: {{ $landingBg }};
+    }
+</style>
+
 
 @fonts
 
