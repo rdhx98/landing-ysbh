@@ -9,6 +9,8 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Validation\Rules\Password;
 use Illuminate\Support\Facades\View;
 
+use App\Models\Navigation;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -26,18 +28,26 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->configureDefaults();
         // Data navigasi sentral
-        $navLinks = [
-            ['route' => 'home', 'label' => 'Beranda'],
-            ['route' => 'programs', 'label' => 'Program'],
-            // ['route' => 'articles', 'label' => 'Berita'],
-            ['route' => 'transparancy', 'label' => 'Transparansi'],
-            ['route' => 'credibility', 'label' => 'Kredibilitas'],
-            ['route' => 'contact', 'label' => 'Kontak'],
-            ['route' => 'about', 'label' => 'Tentang'],
-        ];
+        // $navLinks = [
+        //     ['route' => 'home', 'label' => 'Beranda'],
+        //     ['route' => 'programs', 'label' => 'Program'],
+        //     // ['route' => 'articles', 'label' => 'Berita'],
+        //     ['route' => 'transparancy', 'label' => 'Transparansi'],
+        //     ['route' => 'credibility', 'label' => 'Kredibilitas'],
+        //     ['route' => 'contact', 'label' => 'Kontak'],
+        //     ['route' => 'about', 'label' => 'Tentang'],
+        // ];
 
         // Bagikan variabel ini ke semua file view (.blade.php)
-        View::share('navLinks', $navLinks);
+        // View::share('navLinks', $navLinks);
+        View::composer('components.layouts.header', function ($view) {
+            // Ambil menu dari database, urutkan berdasarkan kolom 'order'
+            $navLinks = Navigation::where('is_active', true)
+                            ->orderBy('order', 'asc')
+                            ->get();
+
+            $view->with('navLinks', $navLinks);
+        });
     }
 
     /**

@@ -15,6 +15,15 @@ Route::view('/programs/imunisasi', 'pages/imunisasi-program')->name('programs-im
 Route::view('/programs/kia', 'pages/kia-program')->name('programs-kia');
 
 Route::view('/programs/', 'pages/programs')->name('programs');
-Route::view('/kredibilitas', 'pages/credibility')->name('credibility');
-Route::view('/transparansi', 'pages/transparancy')->name('transparancy');
+Route::view('/credibility', 'pages/credibility')->name('credibility');
+Route::view('/transparancies', 'pages/transparancy')->name('transparancies');
 Route::view('/impact', 'pages/impact')->name('impact');
+
+/*
+home
+programs
+transparancies
+credibility
+contact
+about
+*/
