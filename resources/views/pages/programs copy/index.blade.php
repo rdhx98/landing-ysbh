@@ -58,7 +58,7 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
 
                 <!-- Card 1 -->
-                <a href="#" class="article-card flex flex-col bg-white border border-foresty/15 rounded-[18px] overflow-hidden shadow-[0_20px_50px_-25px_rgba(6,45,35,0.35)] hover:-translate-y-1 transition-transform duration-300 reveal opacity-0 translate-y-6 ease-out motion-reduce:transition-none group">
+                <a href="{{ route('programs-malaria') }}" class="article-card flex flex-col bg-white border border-foresty/15 rounded-[18px] overflow-hidden shadow-[0_20px_50px_-25px_rgba(6,45,35,0.35)] hover:-translate-y-1 transition-transform duration-300 reveal opacity-0 translate-y-6 ease-out motion-reduce:transition-none group">
                     <div class="aspect-[16/10] bg-mist flex items-center justify-center text-ink-soft border-b border-foresty/15">
                         <svg class="w-6.5 h-6.5 opacity-50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 8a2 2 0 0 1 2-2h1.5l1-1.5h7l1 1.5H18a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"/><circle cx="12" cy="12.5" r="3.5"/></svg>
                     </div>
@@ -66,7 +66,8 @@
                         <div>
                             <span class="cat-badge cat-kegiatan inline-block text-[11.5px] font-extrabold tracking-[0.06em] uppercase px-3 py-1.5 rounded-full mb-3.5 bg-goldy-soft text-foresty">Kegiatan</span>
                         </div>
-                        <h3 class="font-display font-semibold text-[17px] leading-[1.35] text-foresty mb-2.5 group-hover:text-goldy transition-colors">Cerita dari Waghete: Pelatihan Fasilitator Imunisasi di Deiyai</h3>
+                        <h3 class="font-display font-semibold text-[17px] leading-[1.35] text-foresty mb-2.5 group-hover:text-goldy transition-colors">Malaria</h3>
+                        {{-- <h3 class="font-display font-semibold text-[17px] leading-[1.35] text-foresty mb-2.5 group-hover:text-goldy transition-colors">Cerita dari Waghete: Pelatihan Fasilitator Imunisasi di Deiyai</h3> --}}
                         <p class="text-ink-soft text-[14px] flex-1 mb-3.5">Dua puluh tenaga kesehatan dari lima puskesmas berkumpul selama tiga hari untuk memperdalam praktik POCQI.</p>
                         <div class="flex items-center gap-3.5 text-[13px] text-ink-soft">
                             <span>Tim YSBH</span>
@@ -77,7 +78,7 @@
                 </a>
 
                 <!-- Card 2 -->
-                <a href="#" class="article-card flex flex-col bg-white border border-foresty/15 rounded-[18px] overflow-hidden shadow-[0_20px_50px_-25px_rgba(6,45,35,0.35)] hover:-translate-y-1 transition-transform duration-300 reveal opacity-0 translate-y-6 ease-out motion-reduce:transition-none group">
+                <a href="{{ route('programs-imunisasi') }}" class="article-card flex flex-col bg-white border border-foresty/15 rounded-[18px] overflow-hidden shadow-[0_20px_50px_-25px_rgba(6,45,35,0.35)] hover:-translate-y-1 transition-transform duration-300 reveal opacity-0 translate-y-6 ease-out motion-reduce:transition-none group">
                     <div class="aspect-[16/10] bg-mist flex items-center justify-center text-ink-soft border-b border-foresty/15">
                         <svg class="w-6.5 h-6.5 opacity-50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 8a2 2 0 0 1 2-2h1.5l1-1.5h7l1 1.5H18a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"/><circle cx="12" cy="12.5" r="3.5"/></svg>
                     </div>
@@ -85,7 +86,8 @@
                         <div>
                             <span class="cat-badge cat-laporan inline-block text-[11.5px] font-extrabold tracking-[0.06em] uppercase px-3 py-1.5 rounded-full mb-3.5 bg-mist text-foresty-tint">Laporan</span>
                         </div>
-                        <h3 class="font-display font-semibold text-[17px] leading-[1.35] text-foresty mb-2.5 group-hover:text-goldy transition-colors">Laporan Semester I: Progres Program KIA di 9 Kabupaten</h3>
+                        <h3 class="font-display font-semibold text-[17px] leading-[1.35] text-foresty mb-2.5 group-hover:text-goldy transition-colors">Imunisasi</h3>
+                        {{-- <h3 class="font-display font-semibold text-[17px] leading-[1.35] text-foresty mb-2.5 group-hover:text-goldy transition-colors">Laporan Semester I: Progres Program KIA di 9 Kabupaten</h3> --}}
                         <p class="text-ink-soft text-[14px] flex-1 mb-3.5">Ringkasan capaian pendampingan ibu hamil, bayi baru lahir, dan penguatan Puskesmas Model sepanjang enam bulan pertama.</p>
                         <div class="flex items-center gap-3.5 text-[13px] text-ink-soft">
                             <span>Tim YSBH</span>
@@ -96,7 +98,7 @@
                 </a>
 
                 <!-- Card 3 -->
-                <a href="#" class="article-card flex flex-col bg-white border border-foresty/15 rounded-[18px] overflow-hidden shadow-[0_20px_50px_-25px_rgba(6,45,35,0.35)] hover:-translate-y-1 transition-transform duration-300 reveal opacity-0 translate-y-6 ease-out motion-reduce:transition-none group">
+                <a href="{{ route('programs-kia') }}" class="article-card flex flex-col bg-white border border-foresty/15 rounded-[18px] overflow-hidden shadow-[0_20px_50px_-25px_rgba(6,45,35,0.35)] hover:-translate-y-1 transition-transform duration-300 reveal opacity-0 translate-y-6 ease-out motion-reduce:transition-none group">
                     <div class="aspect-[16/10] bg-mist flex items-center justify-center text-ink-soft border-b border-foresty/15">
                         <svg class="w-6.5 h-6.5 opacity-50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 8a2 2 0 0 1 2-2h1.5l1-1.5h7l1 1.5H18a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"/><circle cx="12" cy="12.5" r="3.5"/></svg>
                     </div>
@@ -104,7 +106,8 @@
                         <div>
                             <span class="cat-badge cat-cerita inline-block text-[11.5px] font-extrabold tracking-[0.06em] uppercase px-3 py-1.5 rounded-full mb-3.5 bg-[#FBE6E6] text-coral-dark">Cerita Lapangan</span>
                         </div>
-                        <h3 class="font-display font-semibold text-[17px] leading-[1.35] text-foresty mb-2.5 group-hover:text-goldy transition-colors">Kunjungan ke Puskesmas Model Wanggar Sari</h3>
+                        <h3 class="font-display font-semibold text-[17px] leading-[1.35] text-foresty mb-2.5 group-hover:text-goldy transition-colors">Kesehatan Ibu & Anak</h3>
+                        {{-- <h3 class="font-display font-semibold text-[17px] leading-[1.35] text-foresty mb-2.5 group-hover:text-goldy transition-colors">Kunjungan ke Puskesmas Model Wanggar Sari</h3> --}}
                         <p class="text-ink-soft text-[14px] flex-1 mb-3.5">Belajar langsung bagaimana OJT Center membentuk kebiasaan berbagi ilmu antar tenaga kesehatan dari berbagai wilayah.</p>
                         <div class="flex items-center gap-3.5 text-[13px] text-ink-soft">
                             <span>Tim YSBH</span>
@@ -115,7 +118,7 @@
                 </a>
 
                 <!-- Card 4 -->
-                <a href="#" class="article-card flex flex-col bg-white border border-foresty/15 rounded-[18px] overflow-hidden shadow-[0_20px_50px_-25px_rgba(6,45,35,0.35)] hover:-translate-y-1 transition-transform duration-300 reveal opacity-0 translate-y-6 ease-out motion-reduce:transition-none group">
+                <a href="{{ route('programs-tbc') }}" class="article-card flex flex-col bg-white border border-foresty/15 rounded-[18px] overflow-hidden shadow-[0_20px_50px_-25px_rgba(6,45,35,0.35)] hover:-translate-y-1 transition-transform duration-300 reveal opacity-0 translate-y-6 ease-out motion-reduce:transition-none group">
                     <div class="aspect-[16/10] bg-mist flex items-center justify-center text-ink-soft border-b border-foresty/15">
                         <svg class="w-6.5 h-6.5 opacity-50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 8a2 2 0 0 1 2-2h1.5l1-1.5h7l1 1.5H18a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"/><circle cx="12" cy="12.5" r="3.5"/></svg>
                     </div>
@@ -123,7 +126,8 @@
                         <div>
                             <span class="cat-badge cat-kegiatan inline-block text-[11.5px] font-extrabold tracking-[0.06em] uppercase px-3 py-1.5 rounded-full mb-3.5 bg-goldy-soft text-foresty">Kegiatan</span>
                         </div>
-                        <h3 class="font-display font-semibold text-[17px] leading-[1.35] text-foresty mb-2.5 group-hover:text-goldy transition-colors">Kolaborasi Lintas Sektor: Ketika Tokoh Adat Bicara Soal Imunisasi</h3>
+                        <h3 class="font-display font-semibold text-[17px] leading-[1.35] text-foresty mb-2.5 group-hover:text-goldy transition-colors">Tuberculosis</h3>
+                        {{-- <h3 class="font-display font-semibold text-[17px] leading-[1.35] text-foresty mb-2.5 group-hover:text-goldy transition-colors">Kolaborasi Lintas Sektor: Ketika Tokoh Adat Bicara Soal Imunisasi</h3> --}}
                         <p class="text-ink-soft text-[14px] flex-1 mb-3.5">Bagaimana suara kepala suku dan pemuka agama membantu menurunkan keraguan warga terhadap vaksin.</p>
                         <div class="flex items-center gap-3.5 text-[13px] text-ink-soft">
                             <span>Tim YSBH</span>
@@ -134,7 +138,7 @@
                 </a>
 
                 <!-- Card 5 -->
-                <a href="#" class="article-card flex flex-col bg-white border border-foresty/15 rounded-[18px] overflow-hidden shadow-[0_20px_50px_-25px_rgba(6,45,35,0.35)] hover:-translate-y-1 transition-transform duration-300 reveal opacity-0 translate-y-6 ease-out motion-reduce:transition-none group">
+                <a href="{{ route('programs-hiv') }}" class="article-card flex flex-col bg-white border border-foresty/15 rounded-[18px] overflow-hidden shadow-[0_20px_50px_-25px_rgba(6,45,35,0.35)] hover:-translate-y-1 transition-transform duration-300 reveal opacity-0 translate-y-6 ease-out motion-reduce:transition-none group">
                     <div class="aspect-[16/10] bg-mist flex items-center justify-center text-ink-soft border-b border-foresty/15">
                         <svg class="w-6.5 h-6.5 opacity-50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 8a2 2 0 0 1 2-2h1.5l1-1.5h7l1 1.5H18a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"/><circle cx="12" cy="12.5" r="3.5"/></svg>
                     </div>
@@ -142,7 +146,8 @@
                         <div>
                             <span class="cat-badge cat-laporan inline-block text-[11.5px] font-extrabold tracking-[0.06em] uppercase px-3 py-1.5 rounded-full mb-3.5 bg-mist text-foresty-tint">Laporan</span>
                         </div>
-                        <h3 class="font-display font-semibold text-[17px] leading-[1.35] text-foresty mb-2.5 group-hover:text-goldy transition-colors">Mengapa Angka Zero-Dose di Papua Tengah Masih Tinggi?</h3>
+                        <h3 class="font-display font-semibold text-[17px] leading-[1.35] text-foresty mb-2.5 group-hover:text-goldy transition-colors">Human Immunodeficiency Virus (HIV)</h3>
+                        {{-- <h3 class="font-display font-semibold text-[17px] leading-[1.35] text-foresty mb-2.5 group-hover:text-goldy transition-colors">Mengapa Angka Zero-Dose di Papua Tengah Masih Tinggi?</h3> --}}
                         <p class="text-ink-soft text-[14px] flex-1 mb-3.5">Menelusuri akar penyebab rendahnya cakupan imunisasi dasar lengkap dan langkah percepatan yang kami dorong.</p>
                         <div class="flex items-center gap-3.5 text-[13px] text-ink-soft">
                             <span>Tim YSBH</span>
