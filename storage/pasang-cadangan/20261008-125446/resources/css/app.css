@@ -1,10 +1,6 @@
 @import 'tailwindcss';
 
 @source '../views';
-/* Kelas Tailwind di berkas PHP kit (peta gaya blok: app/Content/Blocks/*Style.php) harus ikut dipindai. */
-@source '../../app';
-/* config/cms.php menyimpan daftar kelas Tailwind (design: warna, jarak, dst.) yang dipakai renderer blok. */
-@source '../../config';
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 /* PLUS JAKARTA SANS */
 @font-face {
@@ -110,7 +106,6 @@
     --color-forest: #073324;
     --color-terracotta: #C85A32; /* FIX: Diisi agar compiler tidak macet */
     --color-aurum: #E5C423;
-    --color-charcoal: #1f2937; /* dipakai pilihan warna blok kit (Akordion, Unduhan, ...) */
 }
 /* 1. Definisikan keyframes terlebih dahulu */
 @keyframes spin {
@@ -129,9 +124,4 @@
 
 .animate-spin-slower {
   animation: spin 120s linear infinite;
-}
-
-/* Elemen x-cloak disembunyikan sampai Alpine siap (menu mobile dan nav lengket di header memakainya). */
-[x-cloak] {
-  display: none !important;
 }

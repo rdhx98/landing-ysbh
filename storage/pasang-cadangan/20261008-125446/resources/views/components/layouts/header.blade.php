@@ -1,9 +1,8 @@
-{{-- Rilis 13: tautan menu dari $link->href dan $link->isCurrent() (App\Models\Navigation): rute bernama ATAU kolom url (halaman CMS); <header> bersarang diganti <div>. --}}
 <header>
     {{-- <div x-data="{ isSticky: false }" @scroll.window="isSticky = (window.scrollY >= $refs.contentStart.offsetTop)" class="hidden md:flex md:relative w-full"> --}}
     <div x-data="{ isSticky: false }" @scroll.window="isSticky = (window.scrollY >= (document.getElementById('contentStart')?.offsetTop || 300))" class="hidden md:flex md:relative w-full">
         <div class="flex flex-col w-full">
-            <div class="shrink-0">
+            <header class="shrink-0">
                 <div class="bg-paper">
                     <div class="flex flex-row justify-between items-stretch">
                         <div class="mx-4 text-2xl flex items-center py-4">
@@ -33,13 +32,13 @@
                         </div>
                         <div class="mx-4 text-forest flex items-stretch">
                             @foreach ($navLinks as $link)
-                                <a wire:navigate href="{{ $link->href }}" class="flex items-center border-y-4 mr-4 {{ $link->isCurrent() ? 'text-forest border-b-forest border-t-paper' : 'text-forest hover:text-forest border-paper' }}">{{ $link->label }}</a>
+                                <a wire:navigate href="{{ route($link->route_name) }}" class="flex items-center border-y-4 mr-4 {{ request()->routeIs($link->route_name) ? 'text-forest border-b-forest border-t-paper' : 'text-forest hover:text-forest border-paper' }}">{{ $link->label }}</a>
 
                             @endforeach
                         </div>
                     </div>
                 </div>
-            </div>
+            </header>
         </div>
         {{-- DESKTOP STICKY NAV --}}
         <div x-cloak
@@ -59,7 +58,7 @@
                     </div>
                     <div class="mx-4 text-forest flex items-stretch">
                         @foreach ($navLinks as $link)
-                            <a wire:navigate href="{{ $link->href }}" class="flex items-center border-y-4 mr-4 {{ $link->isCurrent() ? 'text-forest border-b-forest border-t-paper' : 'text-forest hover:text-forest border-paper' }}">{{ $link->label }}</a>
+                            <a wire:navigate href="{{ route($link->route_name) }}" class="flex items-center border-y-4 mr-4 {{ request()->routeIs($link->route_name) ? 'text-forest border-b-forest border-t-paper' : 'text-forest hover:text-forest border-paper' }}">{{ $link->label }}</a>
                         @endforeach
                     </div>
                 </div>
@@ -143,9 +142,9 @@
                 <div class="flex flex-col space-y-3">
                     @foreach ($navLinks as $link)
                         <a wire:navigate
-                            href="{{ $link->href }}"
+                            href="{{ route($link->route_name) }}"
                             @click="mobileMenuOpen = false"
-                            class="flex items-center px-4 py-3.5 rounded-xl border transition-colors {{ $link->isCurrent() ? 'bg-forest text-white border-forest shadow-md' : 'bg-gray-50 text-forest border-gray-100 hover:bg-forest/10' }}">
+                            class="flex items-center px-4 py-3.5 rounded-xl border transition-colors {{ request()->routeIs($link->route_name) ? 'bg-forest text-white border-forest shadow-md' : 'bg-gray-50 text-forest border-gray-100 hover:bg-forest/10' }}">
 
                             <span class="font-medium text-lg">{{ $link->label }}</span>
 
