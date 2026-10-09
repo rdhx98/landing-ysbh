@@ -339,45 +339,75 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Slug halaman yang DILARANG (DITAMBAHKAN; harus ada di config/cms.php KEDUA aplikasi)
+    | Bahasa (rilis 24; keputusan lengkap di docs/BAHASA.md)
     |--------------------------------------------------------------------------
-    | Rute statis di routes/web.php didaftarkan lebih dulu daripada '/{slug}', jadi halaman CMS ber-slug yang sama tersimpan dan tampak
-    | online tetapi TIDAK PERNAH terbuka. Penjaga di editor (ContentRules) menolak slug ini. Daftar bawaan yang teknis (storage, build,
-    | up, ...) ada di kode (Slug::RESERVED); di sini hanya rute statis MILIK SITUS. Setiap rute satu-segmen baru di web.php harus
-    | ditambahkan di sini (tools/check-landing.php dan tests/landing-app-test.php memeriksanya). Saat sebuah halaman statis dipindahkan
-    | ke CMS (tahap 2), hapus rutenya DAN slug-nya dari daftar ini.
+    | Bahasa ditentukan HANYA oleh alamat. Bahasa bawaan (EN) tanpa awalan: "/", "/about-us", "/articles", "/articles/{slug}".
+    | Bahasa lain dengan awalan kodenya: "/id", "/id/tentang-kami", "/id/artikel", "/id/artikel/{slug}". Slug berbeda per bahasa.
+    | Daftar bahasa: config/app.php 'supported_locales' (mis. ['en', 'id']). Kunci di bawah ini berbentuk PETA bahasa; bentuk lama (satu teks
+    | untuk semua bahasa) masih diterima, tetapi tidak cukup untuk situs dua bahasa.
+    | HARUS sama dengan config/cms.php di CMS dan dengan routes/web.php (tools/check-landing.php memeriksanya).
     */
-    "reserved_slugs" => ["about", "contact", "programs", "credibility", "transparancies", "impact"],
+    "default_locale" => "en",
 
     /*
-    | Slug halaman CMS yang menjadi KEPALA daftar artikel (/artikel): judul, deskripsi SEO, blok pengantar, dan snippet penutupnya
-    | dipakai halaman daftar. Harus sama dengan jalur rute 'articles' di web.php. Boleh dipakai walau alamatnya rute tetap.
+    | Slug halaman CMS yang DILARANG, per bahasa (DITAMBAHKAN; harus ada di config/cms.php KEDUA aplikasi)
+    | Rute statis di routes/web.php didaftarkan lebih dulu daripada '/{slug}', jadi halaman CMS ber-slug yang sama tersimpan dan tampak
+    | online tetapi TIDAK PERNAH terbuka. Penjaga di editor (ContentRules) menolak slug ini. Daftar bawaan yang teknis (storage, build,
+    | up, robots, sitemap, ...) ada di kode (Slug::RESERVED); kode bahasa lain ("id") otomatis terlarang di bahasa bawaan (alamat "/id").
+    | Di sini hanya rute statis satu-segmen MILIK SITUS, per bahasa. Sejak rilis 23 landing tidak punya halaman statis, jadi KOSONG.
     */
-    "articles_index_slug" => "artikel",
+    "reserved_slugs" => [
+        "en" => [],
+        "id" => [],
+    ],
+
+    /*
+    | Slug halaman CMS yang menjadi BERANDA, per bahasa. Halaman ber-slug ini dilayani di jalur beranda bahasa itu ("/" atau "/id");
+    | "/{slug}" dialihkan 301 ke sana. Belum ada atau offline = beranda membalas 503 "situs sedang disiapkan".
+    | Satu halaman CMS biasanya melayani kedua bahasa: slug "home" (en) dan "beranda" (id) pada baris yang SAMA.
+    */
+    "home_slug" => [
+        "en" => "home",
+        "id" => "beranda",
+    ],
+
+    /*
+    | Slug halaman CMS yang menjadi KEPALA daftar artikel, per bahasa: judul, deskripsi SEO, blok pengantar, dan snippet penutupnya dipakai
+    | halaman daftar. Harus sama dengan jalur 'articles' di bawah. Halaman ini boleh dibuat di CMS walau alamatnya rute tetap.
+    */
+    "articles_index_slug" => [
+        "en" => "articles",
+        "id" => "artikel",
+    ],
 
     /*
     |--------------------------------------------------------------------------
     | Jalur statis untuk peta situs (/sitemap.xml) (DITAMBAHKAN; hanya landing)
     |--------------------------------------------------------------------------
-    | Halaman CMS dan artikel masuk peta situs otomatis dari basis data. Halaman STATIS (rute di routes/web.php) harus dicatat di sini.
-    | tests/landing-app-test.php dan tools/check-landing.php memeriksa bahwa setiap rute GET statis tanpa parameter tercatat.
-    | Saat sebuah halaman statis dipindahkan ke CMS (tahap 2), hapus jalurnya dari sini: ia masuk dari basis data.
+    | Halaman CMS (termasuk beranda) dan artikel masuk peta situs otomatis dari basis data. Hanya halaman yang BUKAN dari basis data dicatat
+    | di sini: indeks artikel tiap bahasa adalah kode landing, bukan halaman CMS. tests/landing-app-test.php dan tools/check-landing.php
+    | memeriksa bahwa setiap rute GET statis tanpa parameter tercatat.
     */
-    "sitemap_static" => ["/", "/about", "/contact", "/programs", "/programs/malaria", "/programs/imunisasi", "/programs/kia", "/programs/tbc", "/programs/hiv", "/credibility", "/transparancies", "/impact", "/artikel"],
+    "sitemap_static" => ["/articles", "/id/artikel"],
 
     /*
     |--------------------------------------------------------------------------
     | Alamat publik (DITAMBAHKAN untuk aplikasi LANDING; lihat docs/DUA-APLIKASI.md)
     |--------------------------------------------------------------------------
-    | Templat HARUS sama dengan rute di routes/web.php:
-    |   page.show    '/{slug}'            article.show  '/artikel/{slug}'
+    | Templat HARUS sama dengan rute di routes/web.php (per bahasa):
+    |   page.show     en '/{slug}'            id '/id/{slug}'
+    |   article.show  en '/articles/{slug}'   id '/id/artikel/{slug}'
+    |   home          en '/'                  id '/id'
+    |   articles      en '/articles'          id '/id/artikel'
     | 'base' kosong di landing (jalur relatif). 'cover': nama berkas featured_image artikel -> alamat gambar.
     | Kunci lain di berkas ini (design, lucide, fonts) disalin APA ADANYA dari config/cms.php di CMS: renderer blok membacanya.
     */
     "public" => [
         "base" => env("CMS_PUBLIC_URL", ""),
-        "page" => "/{slug}",
-        "article" => "/artikel/{slug}",
+        "page" => ["en" => "/{slug}", "id" => "/id/{slug}"],
+        "article" => ["en" => "/articles/{slug}", "id" => "/id/artikel/{slug}"],
+        "home" => ["en" => "/", "id" => "/id"],
+        "articles" => ["en" => "/articles", "id" => "/id/artikel"],
         "cover" => env("CMS_COVER_TEMPLATE", "/storage/articles/{file}"),   // editor artikel menyimpan NAMA BERKAS saja dan membacanya dari storage/articles/
     ],
 ];

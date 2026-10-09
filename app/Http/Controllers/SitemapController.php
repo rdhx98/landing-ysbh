@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Content\Languages;
 use App\Content\PublicLookup;
 use App\Content\Sitemap;
 use Illuminate\Http\Response;
@@ -9,7 +10,8 @@ use Illuminate\Http\Response;
 /**
  * GET /sitemap.xml  (rute 'sitemap'; didaftarkan di routes/web.php SEBELUM '/{slug}').
  *
- * Isi: setiap halaman CMS online dan artikel terbit (satu alamat per slug per bahasa) + jalur statis dari config('cms.sitemap_static').
+ * Isi: setiap halaman CMS online dan artikel terbit (satu alamat per slug per bahasa, dengan templat alamat bahasa itu) + jalur statis
+ * dari config('cms.sitemap_static'). Hanya versi yang sudah diterjemahkan (slug dan judul terisi) yang masuk.
  * Semua logika ada di App\Content\Sitemap dan PublicLookup::sitemapEntries (diuji); ini hanya penyambung.
  *
  * Alamat dasar = APP_URL (harus skema://host saja, mis. https://ysbh.org). Bila gagal membaca basis data, atau hasilnya kosong, dibalas
@@ -20,13 +22,13 @@ final class SitemapController
     public function __invoke(): Response
     {
         try {
-            $rows = PublicLookup::sitemapEntries((array) config('app.supported_locales', ['id', 'en']));
+            $rows = PublicLookup::sitemapEntries(Languages::fromConfig()['locales']);
         } catch (\Throwable $e) {
             report($e);
             abort(503, 'Peta situs belum tersedia.');
         }
 
-        $entries = Sitemap::entries($rows, (array) config('cms.sitemap_static', []), self::base(), config('cms.public.page'), config('cms.public.article'));
+        $entries = Sitemap::entries($rows, (array) config('cms.sitemap_static', []), self::base(), config('cms.public.page'), config('cms.public.article'), config('cms.home_slug'), config('cms.public.home'));
         if ($entries === []) {
             report(new \RuntimeException('Peta situs kosong: periksa APP_URL, config cms.public, dan cms.sitemap_static.'));
             abort(503, 'Peta situs belum tersedia.');

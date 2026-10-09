@@ -1,4 +1,4 @@
-{{-- Rilis 13: tautan menu dari $link->href dan $link->isCurrent() (App\Models\Navigation): rute bernama ATAU kolom url (halaman CMS); <header> bersarang diganti <div>. --}}
+{{-- Rilis 24: tombol bahasa Alpine (tidak berfungsi) diganti <x-layouts.lang-switch> = tautan ke versi bahasa lain halaman ini. Rilis 13: tautan menu dari $link->href dan $link->isCurrent() (App\Models\Navigation): rute bernama ATAU kolom url (halaman CMS); <header> bersarang diganti <div>. --}}
 <header>
     {{-- <div x-data="{ isSticky: false }" @scroll.window="isSticky = (window.scrollY >= $refs.contentStart.offsetTop)" class="hidden md:flex md:relative w-full"> --}}
     <div x-data="{ isSticky: false }" @scroll.window="isSticky = (window.scrollY >= (document.getElementById('contentStart')?.offsetTop || 300))" class="hidden md:flex md:relative w-full">
@@ -14,13 +14,7 @@
                             </div>
                         </div>
                         <div class="mx-4 text-forest flex items-center">
-                            <button
-                                x-data="{ lang: 'ID' }"
-                                @click="lang = lang === 'ID' ? 'EN' : 'ID'; console.log('Bahasa saat ini:', lang);"
-                                type="button" class="flex items-center border border-forest rounded-lg p-2 cursor-pointer hover:bg-forest hover:text-white transition-colors">
-                                <x-dynamic-component :component="'lucide-globe'" class="w-4 h-4 mr-2" stroke-width="2"/>
-                                <span x-text="lang"></span>
-                            </button>
+                            <x-layouts.lang-switch class="flex items-center border border-forest rounded-lg p-2 cursor-pointer hover:bg-forest hover:text-white transition-colors" />
                         </div>
                     </div>
                 </div>
@@ -124,14 +118,8 @@
             </div>
 
             <div class="px-6 pb-4 pt-2 flex justify-between items-center border-b border-gray-100 shrink-0">
-                <button
-                    x-data="{ lang: 'ID' }"
-                    @click="lang = lang === 'ID' ? 'EN' : 'ID'"
-                    type="button" class="flex items-center border border-forest rounded-lg p-1.5 cursor-pointer hover:bg-forest hover:text-white transition-colors text-xs text-forest">
-                    <x-dynamic-component :component="'lucide-globe'" class="w-3 h-3 mr-1" stroke-width="2"/>
-                    <span x-text="lang"></span>
-                </button>
-                <h3 class="text-forest font-bold text-xl">Menu Navigasi</h3>
+                <x-layouts.lang-switch icon-class="w-3 h-3 mr-1" class="flex items-center border border-forest rounded-lg p-1.5 cursor-pointer hover:bg-forest hover:text-white transition-colors text-xs text-forest" />
+                <h3 class="text-forest font-bold text-xl">{{ app()->getLocale() === 'id' ? 'Menu Navigasi' : 'Navigation menu' }}</h3>
                 <button @click="mobileMenuOpen = false" class="text-gray-400 hover:text-forest p-1">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
