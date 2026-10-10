@@ -61,6 +61,16 @@ final class Field
         return new self('link', $key, $label);
     }
 
+    /**
+     * Tautan yang disimpan sebagai SATU teks (bukan objek): `internal://page|article/{slug}` atau alamat luar (https://…, /jalur).
+     * Dipakai tempat yang sudah menyimpan teks (mis. tautan seluruh kartu di Kartu Builder), jadi data lama tetap terbaca.
+     * Nama tujuan yang dipilih disimpan di saudaranya "{key}_label" (hanya tampilan; tidak pernah dipakai sebagai href).
+     */
+    public static function urlLink(string $key, string $label): self
+    {
+        return new self('urllink', $key, $label);
+    }
+
     /** Teks per bahasa: key menunjuk ke objek {id, en}. */
     public static function i18n(string $key, string $label, bool $multi = false, int $rows = 3, ?array $when = null): self
     {
@@ -68,12 +78,14 @@ final class Field
     }
 
     /**
-     * Teks kaya (HTML dari Tiptap) per bahasa. SENGAJA belum bisa diedit di inspektur: <x-editor.rich>
-     * hanya menampilkan teksnya sampai satu instance Tiptap dipasang (Fase 3), supaya HTML tidak rusak.
+     * Teks kaya (HTML dari Tiptap) per bahasa. <x-editor.rich> memasang SATU Tiptap aktif per bahasa untuk blok yang difokus
+     * (resources/js/rich-field.js, rilis 31). multi = false: judul satu baris (disimpan tanpa <p>); true: paragraf (HTML Tiptap).
+     * HTML tersimpan yang tidak bisa diwakili Tiptap tanpa kehilangan isi (tabel, gambar, ...) tetap hanya-baca.
      */
-    public static function rich(string $key, string $label, bool $multi = false): self
+    public static function rich(string $key, string $label, bool $multi = false, bool $align = false): self
     {
-        return new self('rich', $key, $label, [], null, null, ['multi' => $multi]);
+        // align (rilis 33): toolbar Judul menampilkan rata teks, ditulis ke data.align milik blok (Judul tidak punya <p> untuk menyimpannya)
+        return new self('rich', $key, $label, [], null, null, ['multi' => $multi, 'align' => $align]);
     }
 
     public static function toggle(string $key, string $label, ?array $when = null): self

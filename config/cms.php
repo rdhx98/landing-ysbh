@@ -326,6 +326,8 @@ return [
         "box",
         "download",
         "arrow-right",
+        'baby',
+        'microscope',
     ],
     "fonts" => [
         "font-arial" => "Arial",
@@ -379,6 +381,8 @@ return [
         "en" => "articles",
         "id" => "artikel",
     ],
+
+    'article_self_review' => true,
 
     /*
     |--------------------------------------------------------------------------
