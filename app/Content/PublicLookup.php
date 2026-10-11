@@ -229,6 +229,104 @@ final class PublicLookup
         return self::feed(self::publishedArticles($locale, $categoryId)->offset(($page - 1) * $perPage)->limit($perPage)) + ['total' => $total, 'page' => $page, 'perPage' => $perPage];
     }
 
+    /**
+     * Bahan blok Artikel Terbaru yang dinamis (rilis 48): bagian UNGGULAN (artikel yang disematkan di blok, lalu dilengkapi artikel terbaru
+     * yang sesuai saringan blok sampai jumlah unggulan terpenuhi) dan DAFTAR di bawahnya (artikel sisanya, paling baru dulu).
+     *
+     * Opsi $o: locale ?string; source 'all'|'categories'; categoryIds list<int>; pinnedIds list<int>; featured 0-6; paging 'limit'|'pages';
+     * perPage (limit: 1-12, pages: 3-24); page (mode pages; diratakan ke 1..jumlah halaman); excludeId (artikel yang sedang dibuka).
+     *
+     * - Sematan TIDAK ikut saringan kategori (keputusan produk), tetapi harus terbit dan punya terjemahan di $locale.
+     * - Sumber 'categories' tanpa kategori satu pun = hasil kosong (`noCategories`), bukan semua artikel.
+     * - Artikel unggulan tidak muncul lagi di daftar; $excludeId tidak muncul di mana pun.
+     *
+     * @param  array<string,mixed> $o
+     * @return array{featured:list<array<string,mixed>>,rows:list<array<string,mixed>>,categories:array<int,mixed>,total:int,page:int,pages:int,perPage:int,noCategories:bool}
+     */
+    public static function blockArticles(array $o): array
+    {
+        $locale = isset($o['locale']) && is_string($o['locale']) && $o['locale'] !== '' ? $o['locale'] : null;
+        $exclude = isset($o['excludeId']) && (int) $o['excludeId'] > 0 ? (int) $o['excludeId'] : null;
+        $paged = ($o['paging'] ?? 'limit') === 'pages';
+        $perPage = $paged ? max(3, min(24, (int) ($o['perPage'] ?? 9))) : max(1, min(12, (int) ($o['perPage'] ?? 3)));
+        $featuredCount = max(0, min(6, (int) ($o['featured'] ?? 0)));
+        $ids = null;
+        if (($o['source'] ?? 'all') === 'categories') {
+            $ids = array_values(array_unique(array_filter(array_map('intval', (array) ($o['categoryIds'] ?? [])), fn (int $id) => $id > 0)));
+        }
+        $empty = ['featured' => [], 'rows' => [], 'categories' => [], 'total' => 0, 'page' => 1, 'pages' => 1, 'perPage' => $perPage, 'noCategories' => false];
+        if ($ids === []) {
+            return ['noCategories' => true] + $empty;
+        }
+
+        $base = function () use ($locale, $ids, $exclude): \Illuminate\Database\Eloquent\Builder {
+            $q = self::inCategories(self::publishedArticles($locale), $ids);
+
+            return $exclude === null ? $q : $q->where('id', '!=', $exclude);
+        };
+
+        $featured = [];
+        $categories = [];
+        if ($featuredCount > 0) {
+            $pinned = array_values(array_unique(array_filter(array_map('intval', (array) ($o['pinnedIds'] ?? [])), fn (int $id) => $id > 0 && $id !== $exclude)));
+            if ($pinned) {
+                $found = self::feed(self::inLocale(self::visible(\App\Models\Post::query(), self::ARTICLE_STATUS), $locale)->whereIn('id', $pinned));
+                $byId = [];
+                foreach ($found['rows'] as $row) {
+                    $byId[(int) $row['id']] = $row;
+                }
+                foreach ($pinned as $id) {          // urutan sesuai pilihan di inspektur
+                    if (isset($byId[$id]) && count($featured) < $featuredCount) {
+                        $featured[] = $byId[$id];
+                    }
+                }
+                $categories += $found['categories'];
+            }
+            $need = $featuredCount - count($featured);
+            if ($need > 0) {
+                $query = $base()->limit($need);
+                if ($featured) {
+                    $query->whereNotIn('id', array_map(fn ($r) => (int) $r['id'], $featured));
+                }
+                $fill = self::feed($query);
+                $featured = array_merge($featured, $fill['rows']);
+                $categories += $fill['categories'];
+            }
+        }
+        $featuredIds = array_map(fn ($r) => (int) $r['id'], $featured);
+
+        $listQuery = fn () => $featuredIds ? $base()->whereNotIn('id', $featuredIds) : $base();
+        $total = 0;
+        $page = 1;
+        $pages = 1;
+        if ($paged) {
+            $total = (int) $listQuery()->count();
+            $pages = max(1, (int) ceil($total / $perPage));
+            $page = max(1, min($pages, (int) ($o['page'] ?? 1)));
+            $list = self::feed($listQuery()->offset(($page - 1) * $perPage)->limit($perPage));
+        } else {
+            $list = self::feed($listQuery()->limit($perPage));
+            $total = count($list['rows']);
+        }
+
+        return [
+            'featured' => $featured,
+            'rows' => $list['rows'],
+            'categories' => $categories + $list['categories'],
+            'total' => $total,
+            'page' => $page,
+            'pages' => $pages,
+            'perPage' => $perPage,
+            'noCategories' => false,
+        ];
+    }
+
+    /** Menyaring ke beberapa kategori (null = tanpa saringan; larik kosong = tidak ada hasil). */
+    private static function inCategories(\Illuminate\Database\Eloquent\Builder $query, ?array $ids): \Illuminate\Database\Eloquent\Builder
+    {
+        return $ids === null ? $query : $query->whereIn('category_id', $ids);
+    }
+
     /** Artikel terbit, paling baru dulu; urutan tetap pasti walau tanggalnya sama (id menurun). */
     private static function publishedArticles(?string $locale = null, ?int $categoryId = null): \Illuminate\Database\Eloquent\Builder
     {

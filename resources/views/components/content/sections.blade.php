@@ -19,6 +19,7 @@
 @php
   $canvas = $mode === 'canvas';
   view()->share('canvasMode', $canvas); // komponen render yang butuh tahu (mis. FAQ: semua terbuka di kanvas) membacanya sebagai $canvasMode
+  $blocks = \App\Content\Blocks\MediaUrls::resolve((array) $blocks); // alamat gambar dibentuk ulang dari media_id (rilis 45): tidak tergantung host saat konten disimpan
   $grouped = \App\Content\SectionBuilder::group($blocks, $order, $settings, $lang);
   $sections = $grouped['sections'];
   $tocItems = $grouped['toc'];

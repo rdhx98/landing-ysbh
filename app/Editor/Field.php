@@ -17,7 +17,7 @@ final class Field
         public readonly string $label,
         public readonly array $options = [],
         public readonly mixed $default = null,
-        /** [key, nilai]: kontrol hanya tampil bila nilai di `key` cocok (bool = truthy/falsy). */
+        /** [key, nilai]: kontrol hanya tampil bila nilai di `key` cocok (bool = truthy/falsy; larik = salah satu dari nilai-nilai itu). */
         public readonly ?array $when = null,
         public readonly array $extra = [],
     ) {
@@ -102,6 +102,15 @@ final class Field
     public static function media(string $key, string $label, string $accept = 'image'): self
     {
         return new self('media', $key, $label, [], null, null, ['accept' => $accept]);
+    }
+
+    /**
+     * Daftar pilihan dari basis data (kategori / artikel) yang dicari dengan mengetik. Nilai: [{id, label}] (urut sesuai pilihan).
+     * $kind = "category" | "article" (aksi server searchLinkTargets); $max = jumlah pilihan paling banyak.
+     */
+    public static function picker(string $key, string $label, string $kind, int $max = 6, ?array $when = null, string $placeholder = 'Cari…', string $hint = ''): self
+    {
+        return new self('picker', $key, $label, [], [], $when, ['kind' => $kind, 'max' => $max, 'placeholder' => $placeholder, 'hint' => $hint]);
     }
 
     public function isInline(): bool
