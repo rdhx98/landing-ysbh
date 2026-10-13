@@ -326,8 +326,6 @@ return [
         "box",
         "download",
         "arrow-right",
-        'baby',
-        'microscope',
     ],
     "fonts" => [
         "font-arial" => "Arial",
@@ -382,17 +380,15 @@ return [
         "id" => "artikel",
     ],
 
-    'article_self_review' => true,
-
     /*
     |--------------------------------------------------------------------------
     | Jalur statis untuk peta situs (/sitemap.xml) (DITAMBAHKAN; hanya landing)
     |--------------------------------------------------------------------------
     | Halaman CMS (termasuk beranda) dan artikel masuk peta situs otomatis dari basis data. Hanya halaman yang BUKAN dari basis data dicatat
-    | di sini: indeks artikel tiap bahasa adalah kode landing, bukan halaman CMS. tests/landing-app-test.php dan tools/check-landing.php
-    | memeriksa bahwa setiap rute GET statis tanpa parameter tercatat.
+    | di sini. Rilis 52: daftar artikel tiap bahasa (/articles, /id/artikel) sekarang halaman CMS, jadi TIDAK dicatat di sini lagi.
+    | tests/landing-app-test.php dan tools/check-landing.php memeriksa bahwa setiap rute GET statis tanpa parameter tercatat.
     */
-    "sitemap_static" => ["/articles", "/id/artikel"],
+    "sitemap_static" => [],   // rilis 52: /articles dan /id/artikel kini halaman CMS (masuk peta situs dari basis data); isi hanya rute statis tanpa halaman CMS
 
     /*
     |--------------------------------------------------------------------------
@@ -412,6 +408,7 @@ return [
         "article" => ["en" => "/articles/{slug}", "id" => "/id/artikel/{slug}"],
         "home" => ["en" => "/", "id" => "/id"],
         "articles" => ["en" => "/articles", "id" => "/id/artikel"],
+        // rilis 52: "category" tidak dipakai lagi. Alamat kategori = "{articles}?category={slug}" (daftar tersaring); /articles/category/{slug} hanya alihan 301.
         "cover" => env("CMS_COVER_TEMPLATE", "/storage/articles/{file}"),   // editor artikel menyimpan NAMA BERKAS saja dan membacanya dari storage/articles/
     ],
 ];

@@ -11,6 +11,8 @@
  * $alternates (bahasa => alamat) dipakai sakelar bahasa di header dan tag hreflang.
  */
 
+use App\Content\ArticleListing;
+use App\Content\Blocks\BlockSanitizer;
 use App\Content\Languages;
 use App\Content\Links\LinkResolver;
 use App\Content\Names;
@@ -32,6 +34,13 @@ new #[Layout('components.layouts.app')] class extends Component {
     $this->lang = Languages::forRequest();
     $locales = Languages::fromConfig()['locales'];
     $homeSlug = Languages::homeSlug(config('cms.home_slug'), $this->lang);
+
+    // Rilis 52: rute bernama 'articles' / 'id.articles' (/articles, /id/artikel) kini juga halaman CMS: slug kepala daftar artikel bahasa itu
+    // (config('cms.articles_index_slug')). Nama rute dipertahankan supaya route('articles') di templat Anda tetap jalan. Halamannya belum dibuat atau
+    // offline = 404 (disengaja: kekeliruan harus ketahuan, tidak ada halaman bawaan).
+    if ($slug === null && in_array(request()->route()?->getName(), ['articles', 'id.articles'], true)) {
+      $slug = Languages::indexSlug(config('cms.articles_index_slug'), $this->lang);
+    }
 
     if ($slug !== null && $slug === $homeSlug) {
       throw new \Illuminate\Http\Exceptions\HttpResponseException(redirect(LinkResolver::homeAddress($this->lang) ?? '/', 301));   // /home -> /, /id/beranda -> /id
@@ -56,6 +65,53 @@ new #[Layout('components.layouts.app')] class extends Component {
     view()->share('title', Names::exact($page->getRawOriginal('meta_title'), $this->lang) ?: Names::exact($page->getRawOriginal('title'), $this->lang));
     view()->share('description', Names::exact($page->getRawOriginal('meta_description'), $this->lang));
     view()->share('alternates', PublicLookup::alternateUrls('page', $page, $locales));
+
+    $this->prepareListing($page, $locales);
+  }
+
+  /**
+   * Daftar artikel di halaman ini (rilis 52): bila halaman punya blok Artikel Terbaru UTAMA (berhalaman atau bersaringan), alamatnya diperiksa
+   * di sini, sebelum tampilan dibuat: slug kategori bahasa lain -> 301 ke slug bahasa halaman; ?page=N di luar jangkauan -> 404;
+   * canonical per tampilan (kategori + halaman), judul diberi nama kategori dan "(halaman N)". Hasil daftar dibagikan ke renderer blok
+   * ($articleListingPre) supaya kueri yang sama tidak dijalankan dua kali.
+   */
+  private function prepareListing(object $page, array $locales): void
+  {
+    $doc = PublicLookup::document($page->getRawOriginal('content'), $locales, true, $this->lang);
+    $primary = ArticleListing::primaryId($doc['blocks'], $doc['order']);
+    if ($primary === null) {
+      return;
+    }
+    $clean = BlockSanitizer::forType('latest-articles-builder', $doc['blocks'][$primary]['data'] ?? [], array_values(array_unique([$this->lang, 'en', 'id'])));
+    $query = (array) request()->query();
+    try {
+      $listing = PublicLookup::listing($clean, $primary, $primary, $this->lang, $locales, $query);
+    } catch (\Throwable $e) {   // basis data bermasalah: biarkan halaman tampil; renderer blok menangani galat yang sama sendiri
+      report($e);
+
+      return;
+    }
+
+    if ($listing['redirect'] !== null) {   // /articles?category=<slug bahasa lain> -> slug bahasa halaman ini
+      throw new \Illuminate\Http\Exceptions\HttpResponseException(redirect(url()->current() . ArticleListing::href($query, [ArticleListing::FILTER => $listing['redirect']]), 301));
+    }
+    $paged = $clean['paging'] === 'pages';
+    $requested = $listing['requestedPage'];
+    abort_if($paged && $requested !== null && $requested > max(1, (int) $listing['found']['pages']), 404);   // halaman di luar jangkauan
+
+    $pageNo = $paged ? (int) $listing['found']['page'] : 1;
+    $active = $listing['active'];
+    $title = (string) view()->shared('title', '');
+    if ($active !== null) {
+      $title .= ' — ' . $active['name'];
+    }
+    if ($pageNo > 1) {
+      $title .= ($this->lang === 'id' ? ' (halaman ' : ' (page ') . $pageNo . ')';
+    }
+    view()->share('title', $title);
+    $qs = ArticleListing::href([], [ArticleListing::FILTER => $active['slug'] ?? null, ArticleListing::PAGE => $pageNo]);   // '?' bila kosong
+    view()->share('canonical', url()->current() . ($qs === '?' ? '' : $qs));   // PER TAMPILAN: halaman 2 dan kategori tidak menyatakan dirinya sama dengan halaman 1
+    view()->share('articleListingPre', ['id' => $primary, 'result' => $listing]);
   }
 
   /** Permintaan pembaruan Livewire (/livewire/update) tidak membawa awalan bahasa: pulihkan dari properti terkunci. */
