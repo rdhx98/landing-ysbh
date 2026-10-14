@@ -60,7 +60,7 @@
         --color-paper: {{ $landingBg }};
     }
 </style>
-
+<x-palette-style />
 @fonts
 
 @vite(['resources/css/app.css', 'resources/js/app.js'])

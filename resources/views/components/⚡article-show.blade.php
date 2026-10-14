@@ -9,9 +9,14 @@
  * Tanpa thumbnail: tidak ada gambar di halaman, og:image jatuh ke gambar bawaan situs (head.blade.php).
  * Rilis 53: kepala selebar isi (max-w-7xl), judul lebih besar, dan baris "Ditulis oleh {penulis}" di samping tanggal bila artikelnya mencentang
  * "Tampilkan nama penulis" di CMS (settings.show_author di kolom content; tanpa migrasi). Tanpa centang = tidak tampil.
+ * Rilis 54: deretan TAG di bawah isi (tiap tag menaut ke "{daftar artikel}?tag=slug") dan "Artikel terkait" (artikel lain yang berbagi tag;
+ * disembunyikan per artikel lewat settings.hide_related, kotak centang "Sembunyikan artikel terkait" di CMS). Tanpa tag = keduanya tidak tampil.
+ * Rilis 56: gambar utama (thumbnail) bisa disembunyikan per artikel lewat settings.hide_hero ("Sembunyikan thumbnail di halaman artikel" di CMS);
+ * kartu dan og:image tetap memakai thumbnail itu.
  */
 
 use App\Content\ArticleByline;
+use App\Content\ArticleTags;
 use App\Content\Blocks\ArticleCards;
 use App\Content\Languages;
 use App\Content\Links\LinkResolver;
@@ -94,6 +99,34 @@ new #[Layout('components.layouts.app')] class extends Component {
     );
   }
 
+  /**
+   * Tag artikel untuk bahasa halaman ini (urut abjad). `href` null = tag belum punya alamat di bahasa ini atau daftar artikel belum diatur:
+   * tampil sebagai label tanpa tautan.
+   *
+   * @return list<array{id:int,name:string,slug:?string,href:?string}>
+   */
+  #[Computed]
+  public function tags(): array
+  {
+    $out = [];
+    foreach (PublicLookup::articleTags($this->articleId, $this->lang, Languages::fromConfig()['locales']) as $tag) {
+      $out[] = ['id' => $tag['id'], 'name' => $tag['name'], 'slug' => $tag['slug'], 'href' => $tag['slug'] !== null ? LinkResolver::tagAddress($tag['slug'], $this->lang) : null];
+    }
+
+    return $out;
+  }
+
+  /** @return array{rows:list<array<string,mixed>>,categories:array<int,mixed>} artikel terkait; kosong bila disembunyikan atau tidak ada */
+  #[Computed]
+  public function related(): array
+  {
+    if (ArticleTags::hideRelated($this->document['settings'] ?? [])) {
+      return ['rows' => [], 'categories' => []];
+    }
+
+    return PublicLookup::relatedArticles($this->articleId, $this->lang);
+  }
+
   /** @return array{title:string,category:string,dateIso:string,dateLabel:string,byline:string,bylineLabel:string} */
   #[Computed]
   public function header(): array
@@ -138,7 +171,8 @@ new #[Layout('components.layouts.app')] class extends Component {
     @endif
   </header>
 
-  @if ($this->hero !== null)
+  {{-- rilis 56: settings.hide_hero (CMS: "Sembunyikan thumbnail di halaman artikel") menyembunyikan gambar ini saja; kartu dan og:image tetap memakainya --}}
+  @if ($this->hero !== null && ! \App\Content\Blocks\ArticleCards::hideHero($this->document['settings'] ?? []))
     <figure class="mx-auto max-w-5xl px-4 pb-8">
       {{-- rilis 47: sudut tidak seragam (tidak "boxy"); rasio tetap supaya halaman tidak bergeser saat gambar dimuat; gambar pertama = prioritas --}}
       <img
@@ -157,4 +191,33 @@ new #[Layout('components.layouts.app')] class extends Component {
     :settings="$this->document['settings']"
     :lang="$lang"
   />
+
+  {{-- rilis 54: tag (tautan ke daftar yang disaring) dan artikel terkait --}}
+  @if ($this->tags !== [])
+    <nav class="mx-auto w-full max-w-7xl px-4 pt-2 pb-10 sm:px-6 lg:px-8" aria-label="{{ \App\Content\ArticleTags::listLabel($lang) }}" data-article-tags>
+      <ul role="list" class="flex flex-wrap gap-2">
+        @foreach ($this->tags as $tag)
+          <li>
+            @if ($tag['href'] !== null)
+              <a href="{{ $tag['href'] }}" rel="tag" class="inline-flex items-center rounded-full border border-forest/25 px-3.5 py-1.5 text-sm font-semibold text-forest transition-colors hover:bg-forest/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-forest" data-article-tag="{{ $tag['slug'] }}">#{{ $tag['name'] }}</a>
+            @else
+              <span class="inline-flex items-center rounded-full border border-forest/15 px-3.5 py-1.5 text-sm font-semibold text-ink-soft" data-article-tag="">#{{ $tag['name'] }}</span>
+            @endif
+          </li>
+        @endforeach
+      </ul>
+    </nav>
+  @endif
+
+  @if ($this->related['rows'] !== [])
+    <div class="mx-auto w-full max-w-7xl px-4 pb-16 sm:px-6 lg:px-8" data-related-articles>
+      <x-dynamic-component
+        component="blocks.render.latest-articles-builder"
+        :block="['id' => 'related']"
+        :data="['title' => ['id' => \App\Content\ArticleTags::relatedHeading('id'), 'en' => \App\Content\ArticleTags::relatedHeading('en')], 'columns' => 3, 'show_excerpt' => false]"
+        :lang="$lang"
+        :feed="$this->related"
+      />
+    </div>
+  @endif
 </article>

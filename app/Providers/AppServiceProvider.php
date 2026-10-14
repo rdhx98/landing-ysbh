@@ -27,16 +27,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->configureDefaults();
-        // Data navigasi sentral
-        // $navLinks = [
-        //     ['route' => 'home', 'label' => 'Beranda'],
-        //     ['route' => 'programs', 'label' => 'Program'],
-        //     // ['route' => 'articles', 'label' => 'Berita'],
-        //     ['route' => 'transparancy', 'label' => 'Transparansi'],
-        //     ['route' => 'credibility', 'label' => 'Kredibilitas'],
-        //     ['route' => 'contact', 'label' => 'Kontak'],
-        //     ['route' => 'about', 'label' => 'Tentang'],
-        // ];
 
         // Bagikan variabel ini ke semua file view (.blade.php)
         // View::share('navLinks', $navLinks);
