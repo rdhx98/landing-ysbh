@@ -1,10 +1,17 @@
+{{--
+  Grup Langkah (rilis 66): versi baru renderer milik proyek Anda. Perubahan dari berkas Anda: hanya warna angka, bentuk latar angka dan warna garis
+  (kelas dari StepStyle); tata letak, animasi, orientasi, dan isi anak TIDAK diubah.
+  Kelas yang harus terbaca pemindai Tailwind dan dibentuk di StepStyle: rounded-none rounded-full rounded-xl opacity-30 opacity-60 opacity-100 shadow-sm text-white bg-white
+--}}
 @props(['block', 'data', 'lang', 'allContent'])
 
 @php
     // 1. Konfigurasi Gaya dari Editor
     $orientation = $data['orientation'] ?? 'vertical'; // vertical, horizontal-top, horizontal-bottom
-    $nodeColor = $data['node_color'] ?? 'bg-foresty text-white';
-    $lineColor = $data['line_color'] ?? 'bg-foresty/30';
+    // Rilis 66: bentuk dan warna angka + garis dari palet (App\Content\Blocks\StepStyle). Data lama ("bg-foresty text-white", "bg-foresty/30") dibaca juga.
+    $style = \App\Content\Blocks\StepStyle::resolve($data);
+    $nodeClass = $style['badge'];
+    $lineClass = $style['line'];
     $gapClass = $data['gap'] ?? 'gap-8';
     
     // Ambil ID anak-anak (kartu/konten di dalam grup langkah ini)
@@ -32,13 +39,13 @@
                         <!-- Kolom Indikator (Angka & Garis) -->
                         <div class="flex flex-col items-center">
                             <!-- Lingkaran Angka -->
-                            <div class="relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full font-bold shadow-sm transition-transform duration-300 group-hover:scale-110 {{ $nodeColor }}">
+                            <div class="relative z-10 flex h-10 w-10 shrink-0 items-center justify-center font-bold transition-transform duration-300 group-hover:scale-110 {{ $nodeClass }}">
                                 {{ $index + 1 }}
                             </div>
                             
                             <!-- Potongan Garis Vertikal (Tidak dirender di elemen terakhir) -->
                             @if(!$loop->last)
-                                <div class="w-0.5 flex-1 my-2 rounded-full {{ $lineColor }}"></div>
+                                <div class="w-0.5 flex-1 my-2 rounded-full {{ $lineClass }}"></div>
                             @endif
                         </div>
 
@@ -83,7 +90,7 @@
                         <div class="relative flex items-center {{ $orientation === 'horizontal-bottom' ? 'order-last mt-4' : 'mb-2' }}">
                             
                             <!-- Lingkaran Angka -->
-                            <div class="relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full font-bold shadow-sm transition-transform duration-300 hover:scale-110 {{ $nodeColor }}">
+                            <div class="relative z-10 flex h-10 w-10 shrink-0 items-center justify-center font-bold transition-transform duration-300 hover:scale-110 {{ $nodeClass }}">
                                 {{ $index + 1 }}
                             </div>
 
@@ -91,13 +98,13 @@
                             <!-- Menggunakan trik absolute yang menembus celah (gap) grid desktop -->
                             @if(!$loop->last)
                                 <!-- Garis ini hanya terlihat lurus ke samping di desktop, disembunyikan di HP -->
-                                <div class="hidden md:block absolute top-1/2 left-12 h-0.5 -translate-y-1/2 rounded-full {{ $lineColor }}" 
+                                <div class="hidden md:block absolute top-1/2 left-12 h-0.5 -translate-y-1/2 rounded-full {{ $lineClass }}" 
                                      style="width: calc(100% + 2rem - 3rem);"> 
                                      {{-- Lebar: 100% kolom + ukuran gap - ukuran ikon awal --}}
                                 </div>
                                 
                                 <!-- Garis Vertikal untuk tampilan HP (Fallback) -->
-                                <div class="md:hidden absolute top-10 left-5 h-full w-0.5 -translate-x-1/2 rounded-full {{ $lineColor }}"></div>
+                                <div class="md:hidden absolute top-10 left-5 h-full w-0.5 -translate-x-1/2 rounded-full {{ $lineClass }}"></div>
                             @endif
                         </div>
 
