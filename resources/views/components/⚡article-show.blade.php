@@ -22,6 +22,7 @@ use App\Content\Languages;
 use App\Content\Links\LinkResolver;
 use App\Content\Names;
 use App\Content\PublicLookup;
+use App\Content\Visits;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Locked;
@@ -65,6 +66,8 @@ new #[Layout('components.layouts.app')] class extends Component {
         view()->share('ogImageAlt', $hero['alt']);
       }
     }
+
+    Visits::track('article', $this->articleId, $this->lang);   // rilis 79: hitungan kunjungan harian (tanpa cookie/IP), setelah respons terkirim; tidak pernah melempar galat
   }
 
   public function hydrate(): void

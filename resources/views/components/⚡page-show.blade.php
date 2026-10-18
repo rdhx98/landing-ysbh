@@ -12,11 +12,13 @@
  */
 
 use App\Content\ArticleListing;
+use App\Content\ArticleTags;
 use App\Content\Blocks\BlockSanitizer;
 use App\Content\Languages;
 use App\Content\Links\LinkResolver;
 use App\Content\Names;
 use App\Content\PublicLookup;
+use App\Content\Visits;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Locked;
@@ -67,12 +69,14 @@ new #[Layout('components.layouts.app')] class extends Component {
     view()->share('alternates', PublicLookup::alternateUrls('page', $page, $locales));
 
     $this->prepareListing($page, $locales);
+
+    Visits::track('page', $this->pageId, $this->lang);   // rilis 79: hitungan kunjungan harian (tanpa cookie/IP), setelah respons terkirim; tidak pernah melempar galat
   }
 
   /**
    * Daftar artikel di halaman ini (rilis 52): bila halaman punya blok Artikel Terbaru UTAMA (berhalaman atau bersaringan), alamatnya diperiksa
    * di sini, sebelum tampilan dibuat: slug kategori bahasa lain -> 301 ke slug bahasa halaman; ?page=N di luar jangkauan -> 404;
-   * canonical per tampilan (kategori + halaman), judul diberi nama kategori dan "(halaman N)". Hasil daftar dibagikan ke renderer blok
+   * canonical per tampilan (kategori + tag + halaman), judul diberi nama kategori, " — Tag: nama" (rilis 54: ?tag=, slug tag bahasa lain -> 301 juga) dan "(halaman N)". Hasil daftar dibagikan ke renderer blok
    * ($articleListingPre) supaya kueri yang sama tidak dijalankan dua kali.
    */
   private function prepareListing(object $page, array $locales): void
@@ -92,8 +96,15 @@ new #[Layout('components.layouts.app')] class extends Component {
       return;
     }
 
-    if ($listing['redirect'] !== null) {   // /articles?category=<slug bahasa lain> -> slug bahasa halaman ini
-      throw new \Illuminate\Http\Exceptions\HttpResponseException(redirect(url()->current() . ArticleListing::href($query, [ArticleListing::FILTER => $listing['redirect']]), 301));
+    if ($listing['redirect'] !== null || $listing['tagRedirect'] !== null) {   // ?category= / ?tag= berslug bahasa lain -> slug bahasa halaman ini
+      $fix = [];
+      if ($listing['redirect'] !== null) {
+        $fix[ArticleListing::FILTER] = $listing['redirect'];
+      }
+      if ($listing['tagRedirect'] !== null) {
+        $fix[ArticleListing::TAG] = $listing['tagRedirect'];
+      }
+      throw new \Illuminate\Http\Exceptions\HttpResponseException(redirect(url()->current() . ArticleListing::href($query, $fix), 301));
     }
     $paged = $clean['paging'] === 'pages';
     $requested = $listing['requestedPage'];
@@ -105,11 +116,15 @@ new #[Layout('components.layouts.app')] class extends Component {
     if ($active !== null) {
       $title .= ' — ' . $active['name'];
     }
+    $tag = $listing['activeTag'];
+    if ($tag !== null) {
+      $title .= ArticleTags::titleSuffix($tag['name']);   // rilis 54: " — Tag: nama"
+    }
     if ($pageNo > 1) {
       $title .= ($this->lang === 'id' ? ' (halaman ' : ' (page ') . $pageNo . ')';
     }
     view()->share('title', $title);
-    $qs = ArticleListing::href([], [ArticleListing::FILTER => $active['slug'] ?? null, ArticleListing::PAGE => $pageNo]);   // '?' bila kosong
+    $qs = ArticleListing::href([], [ArticleListing::FILTER => $active['slug'] ?? null, ArticleListing::TAG => $tag['slug'] ?? null, ArticleListing::PAGE => $pageNo]);   // '?' bila kosong
     view()->share('canonical', url()->current() . ($qs === '?' ? '' : $qs));   // PER TAMPILAN: halaman 2 dan kategori tidak menyatakan dirinya sama dengan halaman 1
     view()->share('articleListingPre', ['id' => $primary, 'result' => $listing]);
   }
