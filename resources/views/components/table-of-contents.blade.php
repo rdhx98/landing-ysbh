@@ -73,8 +73,7 @@
                         ? 'border-forest text-forest font-bold' 
                         : 'border-transparent text-ink-soft hover:text-forest hover:border-gray-300'"
                 >
-                    {{-- {{ $item['title'] }} --}}
-                    {{ html_entity_decode($item['title'], ENT_QUOTES | ENT_HTML5, 'UTF-8') }}
+                    {{ $item['title'] }}
                 </button>
             </li>
         @endforeach

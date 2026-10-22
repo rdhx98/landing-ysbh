@@ -5,16 +5,21 @@
     halaman tanpa $title tetap memakai aturan lama (beranda "Sinar Bhakti Husada", lainnya nama aplikasi);
   - warna latar dari tabel settings DIVALIDASI (#RRGGBB) sebelum masuk ke CSS (sebelumnya nilai mentah dari basis data);
   - blok CSS lama yang sudah dikomentari (±200 baris) dihapus; riwayatnya ada di git.
+  Rilis 83: nama situs, deskripsi bawaan, gambar berbagi bawaan, favicon, akun X, noindex, dan JSON-LD dari Pengaturan > Profil & SEO di CMS
+  (PublicLookup::profile). Profil belum diisi = persis perilaku lama. Isi per halaman ($title, $description, $ogImage) selalu menang.
 --}}
 @php
-    $siteName = config('app.name', 'Sinar Bhakti Husada');
+    $profile = \App\Content\PublicLookup::profile((string) app()->getLocale());
+    $siteName = $profile['name'] !== '' ? $profile['name'] : config('app.name', 'Sinar Bhakti Husada');
     // Beranda: judul penuh ditentukan editor (judul meta halaman beranda), tanpa akhiran " | nama situs". Halaman lain: "judul | nama situs".
     $pageTitle = filled($title ?? null)
         ? (request()->routeIs('home', 'id.home') ? $title : $title . ' | ' . $siteName)
-        : (request()->routeIs('home', 'id.home') ? 'Sinar Bhakti Husada' : $siteName);
-    $pageDescription = \Illuminate\Support\Str::limit(trim(strip_tags((string) ($description ?? ''))), 160, '');
+        : (request()->routeIs('home', 'id.home') ? ($profile['name'] !== '' ? $profile['name'] : 'Sinar Bhakti Husada') : $siteName);
+    $pageDescription = \Illuminate\Support\Str::limit(trim(strip_tags((string) (filled($description ?? null) ? $description : $profile['description']))), 160, '');
     $pageCanonical = (string) ($canonical ?? url()->current());
-    $pageImage = (string) ($ogImage ?? asset('ysbh.png'));
+    $ownImage = filled($ogImage ?? null);   // rilis 47: ⚡article-show mengisi $ogImage (mutlak) dari thumbnail artikel
+    $pageImage = $ownImage ? (string) $ogImage : ($profile['og_image'] !== '' ? $profile['og_image'] : asset('ysbh.png'));
+    $pageImageAlt = $ownImage ? (string) ($ogImageAlt ?? '') : $profile['og_alt'];
 
     // Versi bahasa halaman ini (hanya yang sudah diterjemahkan). hreflang harus timbal-balik dan mencakup halaman ini sendiri; satu bahasa = tanpa tag.
     $alts = is_array($alternates ?? null) ? $alternates : [];
@@ -42,7 +47,7 @@
     @endif
 @endif
 
-<meta property="og:type" content="website">
+<meta property="og:type" content="{{ ($ogType ?? '') === 'article' ? 'article' : 'website' }}">
 <meta property="og:site_name" content="{{ $siteName }}">
 <meta property="og:title" content="{{ filled($title ?? null) ? $title : $siteName }}">
 @if ($pageDescription !== '')
@@ -50,9 +55,25 @@
 @endif
 <meta property="og:url" content="{{ $pageCanonical }}">
 <meta property="og:image" content="{{ $pageImage }}">
+@if ($pageImageAlt !== '')
+<meta property="og:image:alt" content="{{ $pageImageAlt }}">
+@endif
 <meta name="twitter:card" content="summary_large_image">
+@if ($profile['twitter'] !== '')
+<meta name="twitter:site" content="{{ $profile['twitter'] }}">
+@endif
+@if ($profile['noindex'])
+<meta name="robots" content="noindex, nofollow">
+@endif
 
+@if ($profile['favicon'] !== '')
+<link rel="icon" href="{{ $profile['favicon'] }}">
+@else
 <link rel="icon" href="{{ asset('logo/emblem-sinar-bhakti-husada.svg') }}" type="image/svg+xml" >
+@endif
+@if (request()->routeIs('home', 'id.home') && ($jsonLd = \App\Content\PublicLookup::jsonLd((string) app()->getLocale(), rtrim((string) url('/'), '/'))) !== '')
+<script type="application/ld+json">{!! $jsonLd !!}</script>
+@endif
 
 <style>
     :root {
@@ -60,7 +81,7 @@
         --color-paper: {{ $landingBg }};
     }
 </style>
-<x-palette-style />
+
 @fonts
 
 @vite(['resources/css/app.css', 'resources/js/app.js'])

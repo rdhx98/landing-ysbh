@@ -84,6 +84,12 @@ class Navigation extends Model
                 fn (string $slug, string $l) => LinkResolver::address('page', $slug, $l),
                 fn (string $l) => LinkResolver::homeAddress($l),
                 fn (string $l) => LinkResolver::indexAddress($l),
+                // rilis 42: artikel per kategori ("/articles/category/malaria") -> halaman kategori itu dalam bahasa pembaca
+                function (string $slug, string $l) use ($lang) {
+                    $hit = PublicLookup::categorySibling($slug, $l, $lang['locales'], $lang['default']);
+
+                    return $hit === null ? null : LinkResolver::categoryAddress($hit['slug'], $hit['locale']);
+                },
             );
         } catch (\Throwable) {
             return $url;   // basis data belum siap atau konfigurasi rusak: menu tetap tampil dengan alamat yang diketik, tidak menjatuhkan situs

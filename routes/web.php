@@ -25,9 +25,6 @@ Route::livewire('/', 'page-show')->name('home');
 Route::get('/sitemap.xml', \App\Http\Controllers\SitemapController::class)->name('sitemap');
 Route::get('/robots.txt', \App\Http\Controllers\RobotsController::class)->name('robots');
 
-// Route::livewire('/articles', 'articles-index')->name('articles');
-// Route::livewire('/articles/{slug}', 'article-show')->name('article.show');
-
 // Rilis 52: daftar artikel = HALAMAN CMS (slug config('cms.articles_index_slug')) berisi blok Artikel Terbaru; tak ada komponen daftar sendiri.
 // Nama rute 'articles' / 'id.articles' dipertahankan (route('articles') di templat Anda tetap jalan); ⚡page-show membacanya.
 Route::livewire('/articles', 'page-show')->name('articles');
@@ -36,11 +33,11 @@ Route::livewire('/articles/{slug}', 'article-show')->name('article.show');
 // bertabrakan dengan '/articles/{slug}'.
 Route::get('/articles/category/{slug}', \App\Http\Controllers\CategoryRedirectController::class)->name('articles.category')->where('slug', '[a-z0-9]+(?:-[a-z0-9]+)*');
 
-
 // ---- Bahasa Indonesia, awalan /id ----
 Route::livewire('/id', 'page-show')->name('id.home');
-Route::livewire('/id/artikel', 'articles-index')->name('id.articles');
+Route::livewire('/id/artikel', 'page-show')->name('id.articles');
 Route::livewire('/id/artikel/{slug}', 'article-show')->name('id.article.show');
+Route::get('/id/artikel/kategori/{slug}', \App\Http\Controllers\CategoryRedirectController::class)->name('id.articles.category')->where('slug', '[a-z0-9]+(?:-[a-z0-9]+)*');
 Route::livewire('/id/{slug}', 'page-show')->name('id.page.show')->where('slug', '[a-z0-9]+(?:-[a-z0-9]+)*');
 
 // ---- Halaman CMS bahasa bawaan: PALING AKHIR ----

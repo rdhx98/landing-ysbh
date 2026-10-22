@@ -9,7 +9,7 @@
     x-init="console.log('✅ Alpine.js Berhasil Dimuat dan Aktif dari app layout!')"
     >
 
-
+    <x-announcement />
     <div
         class="flex flex-col min-h-screen"
         x-data="{ isSticky: false }"

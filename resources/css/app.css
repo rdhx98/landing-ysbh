@@ -79,11 +79,7 @@
     font-style: italic;
     font-display: swap;
 }
-@layer components {
-     .animate-scroll-reveal {
-       @apply opacity-0 translate-y-6 transition-all duration-700 ease-out motion-reduce:transition-none;
-     }
-   }
+
 @theme {
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
     /* is --font-display */
@@ -92,73 +88,30 @@
     --font-jakarta: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
      /* Warna Yayasan Sinar Bhakti Husada */
      /* CLAUDE */
-   
-}
-@theme static {
-    --color-forest: var(--pal-forest, #064F3B);
-    --color-forest-on: var(--pal-forest-on, #FFFFFF);
-    --color-foresty: var(--pal-forest, #064F3B);   /* nama lama, dilebur ke forest */
-    --color-aurum: var(--pal-aurum, #E5C423);
-    --color-aurum-on: var(--pal-aurum-on, #1F2937);
-    --color-goldy: var(--pal-aurum, #E5C423);   /* nama lama, dilebur ke aurum */
-    --color-aurum-soft: var(--pal-aurum-soft, #F7EBAF);
-    --color-aurum-soft-on: var(--pal-aurum-soft-on, #1F2937);
-    --color-goldy-soft: var(--pal-aurum-soft, #F7EBAF);   /* nama lama, dilebur ke aurum-soft */
-    --color-coral: var(--pal-coral, #E42326);
-    --color-coral-on: var(--pal-coral-on, #FFFFFF);
-    --color-charcoal: var(--pal-charcoal, #1F2937);
-    --color-charcoal-on: var(--pal-charcoal-on, #FFFFFF);
-    --color-ink-soft: var(--pal-ink-soft, #4B5D53);
-    --color-ink-soft-on: var(--pal-ink-soft-on, #FFFFFF);
-    --color-paper: var(--pal-paper, #FBF7EA);
-    --color-paper-on: var(--pal-paper-on, #1F2937);
-    --color-mist: var(--pal-mist, #E9F1EB);
-    --color-mist-on: var(--pal-mist-on, #1F2937);
-    --color-misty: var(--pal-mist, #E9F1EB);   /* nama lama, dilebur ke mist */
-    --color-sage-soft: var(--pal-sage-soft, #D2E7DF);
-    --color-sage-soft-on: var(--pal-sage-soft-on, #1F2937);
-    --color-amber: var(--pal-amber, #D97706);
-    --color-amber-on: var(--pal-amber-on, #1F2937);
-    --color-kia: var(--pal-kia, #E0679A);
-    --color-kia-on: var(--pal-kia-on, #1F2937);
-    --color-kia-soft: var(--pal-kia-soft, #FCDCEC);
-    --color-kia-soft-on: var(--pal-kia-soft-on, #1F2937);
-    --color-imunisasi: var(--pal-imunisasi, #1A4793);
-    --color-imunisasi-on: var(--pal-imunisasi-on, #FFFFFF);
-    --color-imunisasi-soft: var(--pal-imunisasi-soft, #DBE9FA);
-    --color-imunisasi-soft-on: var(--pal-imunisasi-soft-on, #1F2937);
-    --color-malaria: var(--pal-malaria, #A347C2);
-    --color-malaria-on: var(--pal-malaria-on, #FFFFFF);
-    --color-malaria-soft: var(--pal-malaria-soft, #EBE0F8);
-    --color-malaria-soft-on: var(--pal-malaria-soft-on, #1F2937);
-    --color-hiv: var(--pal-hiv, #A3153A);
-    --color-hiv-on: var(--pal-hiv-on, #FFFFFF);
-    --color-hiv-soft: var(--pal-hiv-soft, #FBD1CB);
-    --color-hiv-soft-on: var(--pal-hiv-soft-on, #1F2937);
-    --color-tbc: var(--pal-tbc, #57A630);
-    --color-tbc-on: var(--pal-tbc-on, #1F2937);
-    --color-tbc-soft: var(--pal-tbc-soft, #DFF2D4);
-    --color-tbc-soft-on: var(--pal-tbc-soft-on, #1F2937);
-    --color-custom-1: var(--pal-custom-1, transparent);
-    --color-custom-1-on: var(--pal-custom-1-on, #FFFFFF);
-    --color-custom-2: var(--pal-custom-2, transparent);
-    --color-custom-2-on: var(--pal-custom-2-on, #FFFFFF);
-    --color-custom-3: var(--pal-custom-3, transparent);
-    --color-custom-3-on: var(--pal-custom-3-on, #FFFFFF);
-    --color-custom-4: var(--pal-custom-4, transparent);
-    --color-custom-4-on: var(--pal-custom-4-on, #FFFFFF);
-    --color-custom-5: var(--pal-custom-5, transparent);
-    --color-custom-5-on: var(--pal-custom-5-on, #FFFFFF);
-    --color-custom-6: var(--pal-custom-6, transparent);
-    --color-custom-6-on: var(--pal-custom-6-on, #FFFFFF);
-    --color-custom-7: var(--pal-custom-7, transparent);
-    --color-custom-7-on: var(--pal-custom-7-on, #FFFFFF);
-    --color-custom-8: var(--pal-custom-8, transparent);
-    --color-custom-8-on: var(--pal-custom-8-on, #FFFFFF);
-}
+    --color-foresty:#064F3B;
+    --color-foresty-dark:#043328;
+    --color-foresty-tint:#0E6A4F;
+    --color-goldy:#EBCC26;
+    --color-goldy-soft:#F7EBAF;
+    --color-coral:#E42326;
+    --color-coral-dark:#BE1417;
+    --color-paper:#FBF7EA;
+    --color-paper-dim:#F3ECD6;
+    --color-ink:#12241C;
+    --color-ink-soft:#4B5D53;
+    --color-mist:#E9F1EB;
+    /* --color-line:'rgba(6, 79, 59, 0.14)'; */
+    --color-line:rgba(6, 79, 59, 0.14);
 
-@source inline("{bg,text,border}-{forest,aurum,aurum-soft,coral,charcoal,ink-soft,paper,mist,sage-soft,amber,kia,kia-soft,imunisasi,imunisasi-soft,malaria,malaria-soft,hiv,hiv-soft,tbc,tbc-soft,custom-1,custom-2,custom-3,custom-4,custom-5,custom-6,custom-7,custom-8}");
-@source inline("text-{forest,aurum,aurum-soft,coral,charcoal,ink-soft,paper,mist,sage-soft,amber,kia,kia-soft,imunisasi,imunisasi-soft,malaria,malaria-soft,hiv,hiv-soft,tbc,tbc-soft,custom-1,custom-2,custom-3,custom-4,custom-5,custom-6,custom-7,custom-8}-on");
+    /* GEMINI */
+    --color-sage-soft: #D2E7DF;
+    --color-pale-yellow: #FFF2B2;
+    --color-coral-muted: #FAD2D2;
+    --color-forest: #073324;
+    --color-terracotta: #C85A32; /* FIX: Diisi agar compiler tidak macet */
+    --color-aurum: #E5C423;
+    --color-charcoal: #1f2937; /* dipakai pilihan warna blok kit (Akordion, Unduhan, ...) */
+}
 /* 1. Definisikan keyframes terlebih dahulu */
 @keyframes spin {
   from {
@@ -181,4 +134,13 @@
 /* Elemen x-cloak disembunyikan sampai Alpine siap (menu mobile dan nav lengket di header memakainya). */
 [x-cloak] {
   display: none !important;
+}
+
+/* Animasi masuk blok CMS (rilis 78). Renderer blok (Judul, Paragraf, Eyebrow, Gambar, Kolom, Grup Langkah) memakai `reveal animate-scroll-reveal`;
+   tanpa aturan ini elemen tidak punya transisi (transition-duration 0s) dan muncul mendadak. Skrip pemantaunya: contoh-kode/reveal-landing.js.snippet.
+   Berada di layer components supaya utilitas opacity-100 / translate-y-0 yang dipasang skrip menang. */
+@layer components {
+  .animate-scroll-reveal {
+    @apply opacity-0 translate-y-6 transition-all duration-700 ease-out motion-reduce:transition-none;
+  }
 }

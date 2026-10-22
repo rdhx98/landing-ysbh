@@ -411,4 +411,8 @@ return [
         // rilis 52: "category" tidak dipakai lagi. Alamat kategori = "{articles}?category={slug}" (daftar tersaring); /articles/category/{slug} hanya alihan 301.
         "cover" => env("CMS_COVER_TEMPLATE", "/storage/articles/{file}"),   // editor artikel menyimpan NAMA BERKAS saja dan membacanya dari storage/articles/
     ],
+
+    // Rilis 79: hitungan kunjungan harian (tanpa cookie, tanpa menyimpan IP, tanpa pihak ketiga; docs/STATISTIK.md). false = tidak mencatat apa pun.
+    // Tanpa kunci ini pun pencacah menyala (bawaan true); kunci ini hanya untuk mematikannya.
+    "stats" => ["enabled" => filter_var(env("CMS_STATS", "true"), FILTER_VALIDATE_BOOLEAN)],
 ];

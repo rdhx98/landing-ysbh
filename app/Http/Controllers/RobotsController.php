@@ -13,15 +13,26 @@ final class RobotsController
 {
     public function __invoke(): Response
     {
-        return response(self::body(rtrim((string) config('app.url'), '/'), request()->getSchemeAndHttpHost()), 200, [
+        // Rilis 83: Pengaturan > Profil & SEO bisa melarang pengindeksan (dan di luar production selalu melarang). Gagal membaca = tidak melarang.
+        try {
+            $noindex = (bool) (\App\Content\PublicLookup::profile((string) app()->getLocale())['noindex'] ?? false);
+        } catch (\Throwable) {
+            $noindex = false;
+        }
+
+        return response(self::body(rtrim((string) config('app.url'), '/'), request()->getSchemeAndHttpHost(), $noindex), 200, [
             'Content-Type' => 'text/plain; charset=UTF-8',
-            'Cache-Control' => 'public, max-age=3600',
+            'Cache-Control' => $noindex ? 'no-cache' : 'public, max-age=3600',
         ]);
     }
 
-    /** APP_URL bila berbentuk skema://host[:port] saja; selain itu alamat permintaan ini (sama seperti peta situs). Murni, dapat diuji. */
-    public static function body(string $configured, string $requestBase): string
+    /** Rilis 83: $noindex = tutup seluruh situs ("Disallow: /", tanpa Sitemap). APP_URL bila berbentuk skema://host[:port] saja; selain itu alamat permintaan ini (sama seperti peta situs). Murni, dapat diuji. */
+    public static function body(string $configured, string $requestBase, bool $noindex = false): string
     {
+        if ($noindex) {
+            return "User-agent: *\nDisallow: /\n";   // rilis 83: situs ditutup dari mesin pencari; tanpa baris Sitemap
+        }
+
         $base = preg_match('#^https?://[A-Za-z0-9.-]+(?::\d{1,5})?$#D', $configured) ? $configured : $requestBase;
         $base = preg_match('#^https?://[A-Za-z0-9.-]+(?::\d{1,5})?$#D', $base) ? $base : '';
 
