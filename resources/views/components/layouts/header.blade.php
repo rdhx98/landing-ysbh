@@ -1,5 +1,8 @@
 {{-- Rilis 24: tombol bahasa Alpine (tidak berfungsi) diganti <x-layouts.lang-switch> = tautan ke versi bahasa lain halaman ini. Rilis 13: tautan menu dari $link->href dan $link->isCurrent() (App\Models\Navigation): rute bernama ATAU kolom url (halaman CMS); <header> bersarang diganti <div>. --}}
+@php $langSwitch = \App\Content\PublicLookup::languageSwitch(); @endphp
 <header>
+    {{-- Rilis 104: pil bahasa melayang (diatur di CMS: Pengaturan > Bahasa); tampil di semua halaman --}}
+    <x-layouts.lang-float />
     {{-- <div x-data="{ isSticky: false }" @scroll.window="isSticky = (window.scrollY >= $refs.contentStart.offsetTop)" class="hidden md:flex md:relative w-full"> --}}
     <div x-data="{ isSticky: false }" @scroll.window="isSticky = (window.scrollY >= (document.getElementById('contentStart')?.offsetTop || 300))" class="hidden md:flex md:relative w-full">
         <div class="flex flex-col w-full">
@@ -55,6 +58,10 @@
                         @foreach ($navLinks as $link)
                             <a wire:navigate href="{{ $link->href }}" class="flex items-center border-y-4 mr-4 {{ $link->isCurrent() ? 'text-forest border-b-forest border-t-paper' : 'text-forest hover:text-forest border-paper' }}">{{ $link->label }}</a>
                         @endforeach
+                        {{-- Rilis 104: pil bahasa di bilah lengket (sebelumnya pengganti bahasa hanya di bilah atas yang ikut tergulir) --}}
+                        @if ($langSwitch['header'])
+                            <div class="flex items-center"><x-layouts.lang-pill /></div>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -81,6 +88,11 @@
                         <x-dynamic-component :component="'lucide-globe'" class="w-3 h-3 mr-1" stroke-width="2"/>
                         <span x-text="lang"></span>
                     </button> --}}
+
+                    {{-- Rilis 104: pil bahasa di bilah bawah (sebelumnya hanya di dalam menu yang harus dibuka dulu) --}}
+                    @if ($langSwitch['header'])
+                        <x-layouts.lang-pill />
+                    @endif
 
                     <button @click="mobileMenuOpen = true" class="text-forest p-2 bg-gray-50 rounded-lg border border-gray-200">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

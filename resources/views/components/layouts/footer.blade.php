@@ -58,16 +58,16 @@ OPSIONAL dan milik Anda: pemasang tidak menyentuhnya. Salin ke  resources/views/
                               <div class="flex items-center gap-2">
                           @endif
                               @if ($contact['type'] === 'social')
-                                  <div class="flex items-center justify-center w-7 h-7 bg-aurum rounded-full text-forest">
+                                  <div class="shrink-0 flex items-center justify-center w-7 h-7 bg-aurum rounded-full text-forest">
                                       @if ($contact['icon'] !== '')
                                           {{-- rilis 86: ikon merek (Simple Icons, CC0); jalur SVG dari tabel SocialIcons, dicetak dengan {{ }} --}}
-                                          <svg viewBox="0 0 24 24" class="w-4 h-4" fill="currentColor" aria-hidden="true"><path d="{{ \App\Content\SocialIcons::path($contact['icon']) }}"/></svg>
+                                          <svg viewBox="0 0 24 24" class="w-4 h-4 shrink-0" fill="currentColor" aria-hidden="true"><path d="{{ \App\Content\SocialIcons::path($contact['icon']) }}"/></svg>
                                       @else
                                           <span class="text-xs font-black">{{ $contact['badge'] }}</span>
                                       @endif
                                   </div>
                               @else
-                                  <div class="flex items-center justify-center w-7 h-7 bg-aurum rounded-full">
+                                  <div class="shrink-0 flex items-center justify-center w-7 h-7 bg-aurum rounded-full">
                                       <x-dynamic-component :component="$icons[$contact['type']] ?? 'lucide-map-pin'" class="w-4 h-4 text-forest" stroke-width="2"/>
                                   </div>
                               @endif
@@ -87,6 +87,8 @@ OPSIONAL dan milik Anda: pemasang tidak menyentuhnya. Salin ke  resources/views/
   <div class="flex items-center justify-center">
       <div class="w-full py-4 px-16 flex md:flex-row flex-col justify-between items-center max-w-7xl ">
           <span>{{ $footer['copyright'] }}</span>
+          {{-- Rilis 104: tautan bahasa permanen di footer (tampil bila situs punya dua bahasa atau lebih) --}}
+          <x-layouts.lang-links class="my-2 md:my-0" />
           <span>{{ $footer['tagline'] }}</span>
       </div>
   </div>

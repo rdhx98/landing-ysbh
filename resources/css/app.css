@@ -1,4 +1,5 @@
-@import 'tailwindcss';
+@import "tailwindcss";
+@import "./ysbh-kit.css";
 
 @source '../views';
 /* Kelas Tailwind di berkas PHP kit (peta gaya blok: app/Content/Blocks/*Style.php) harus ikut dipindai. */
@@ -8,36 +9,41 @@
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 /* PLUS JAKARTA SANS */
 @font-face {
-    font-family: 'Plus Jakarta Sans';
-    src: url('../../public/fonts/plus-jakarta-sans/PlusJakartaSans-Regular.ttf') format('truetype');
+    font-family: "Plus Jakarta Sans";
+    src: url("../../public/fonts/plus-jakarta-sans/PlusJakartaSans-Regular.ttf")
+        format("truetype");
     font-weight: 400;
     font-style: normal;
     font-display: swap;
 }
 @font-face {
-    font-family: 'Plus Jakarta Sans';
-    src: url('../../public/fonts/plus-jakarta-sans/PlusJakartaSans-Italic.ttf') format('truetype');
+    font-family: "Plus Jakarta Sans";
+    src: url("../../public/fonts/plus-jakarta-sans/PlusJakartaSans-Italic.ttf")
+        format("truetype");
     font-weight: 400;
     font-style: italic;
     font-display: swap;
 }
 @font-face {
-    font-family: 'Plus Jakarta Sans';
-    src: url('../../public/fonts/plus-jakarta-sans/PlusJakartaSans-Medium.ttf') format('truetype');
+    font-family: "Plus Jakarta Sans";
+    src: url("../../public/fonts/plus-jakarta-sans/PlusJakartaSans-Medium.ttf")
+        format("truetype");
     font-weight: 500;
     font-style: normal;
     font-display: swap;
 }
 @font-face {
-    font-family: 'Plus Jakarta Sans';
-    src: url('../../public/fonts/plus-jakarta-sans/PlusJakartaSans-Bold.ttf') format('truetype');
+    font-family: "Plus Jakarta Sans";
+    src: url("../../public/fonts/plus-jakarta-sans/PlusJakartaSans-Bold.ttf")
+        format("truetype");
     font-weight: 700;
     font-style: normal;
     font-display: swap;
 }
 @font-face {
-    font-family: 'Plus Jakarta Sans';
-    src: url('../../public/fonts/plus-jakarta-sans/PlusJakartaSans-BoldItalic.ttf') format('truetype');
+    font-family: "Plus Jakarta Sans";
+    src: url("../../public/fonts/plus-jakarta-sans/PlusJakartaSans-BoldItalic.ttf")
+        format("truetype");
     font-weight: 700;
     font-style: italic;
     font-display: swap;
@@ -45,102 +51,110 @@
 
 /* FRAUNCES */
 @font-face {
-    font-family: 'Fraunces';
-    src: url('../../public/fonts/fraunces/Fraunces_72pt-Regular.ttf') format('truetype');
+    font-family: "Fraunces";
+    src: url("../../public/fonts/fraunces/Fraunces_72pt-Regular.ttf")
+        format("truetype");
     font-weight: 400;
     font-style: normal;
     font-display: swap;
 }
 @font-face {
-    font-family: 'Fraunces';
-    src: url('../../public/fonts/fraunces/Fraunces_72pt-Italic.ttf') format('truetype');
+    font-family: "Fraunces";
+    src: url("../../public/fonts/fraunces/Fraunces_72pt-Italic.ttf")
+        format("truetype");
     font-weight: 400;
     font-style: italic;
     font-display: swap;
 }
 @font-face {
-    font-family: 'Fraunces';
-    src: url('../../public/fonts/fraunces/Fraunces_72pt-SemiBold.ttf') format('truetype');
+    font-family: "Fraunces";
+    src: url("../../public/fonts/fraunces/Fraunces_72pt-SemiBold.ttf")
+        format("truetype");
     font-weight: 500;
     font-style: normal;
     font-display: swap;
 }
 @font-face {
-    font-family: 'Fraunces';
-    src: url('../../public/fonts/fraunces/Fraunces_72pt-Bold.ttf') format('truetype');
+    font-family: "Fraunces";
+    src: url("../../public/fonts/fraunces/Fraunces_72pt-Bold.ttf")
+        format("truetype");
     font-weight: 700;
     font-style: normal;
     font-display: swap;
 }
 @font-face {
-    font-family: 'Fraunces';
-    src: url('../../public/fonts/fraunces/Fraunces_72pt-BlackItalic.ttf') format('truetype');
+    font-family: "Fraunces";
+    src: url("../../public/fonts/fraunces/Fraunces_72pt-BlackItalic.ttf")
+        format("truetype");
     font-weight: 700;
     font-style: italic;
     font-display: swap;
 }
 
 @theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-sans:
+        "Instrument Sans", ui-sans-serif, system-ui, sans-serif,
+        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+        "Noto Color Emoji";
     /* is --font-display */
-    --font-fraunces: 'Fraunces', sans-serif;
+    --font-fraunces: "Fraunces", sans-serif;
     /* --font-body */
-    --font-jakarta: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
-     /* Warna Yayasan Sinar Bhakti Husada */
-     /* CLAUDE */
-    --color-foresty:#064F3B;
-    --color-foresty-dark:#043328;
-    --color-foresty-tint:#0E6A4F;
-    --color-goldy:#EBCC26;
-    --color-goldy-soft:#F7EBAF;
-    --color-coral:#E42326;
-    --color-coral-dark:#BE1417;
-    --color-paper:#FBF7EA;
-    --color-paper-dim:#F3ECD6;
-    --color-ink:#12241C;
-    --color-ink-soft:#4B5D53;
-    --color-mist:#E9F1EB;
+    --font-jakarta: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+    /* Warna Yayasan Sinar Bhakti Husada */
+    /* CLAUDE */
+    /* --color-foresty: #064f3b;
+    --color-foresty-dark: #043328;
+    --color-foresty-tint: #0e6a4f;
+    --color-goldy: #ebcc26;
+    --color-goldy-soft: #f7ebaf;
+    --color-coral: #e42326;
+    --color-coral-dark: #be1417;
+    --color-paper: #fbf7ea;
+    --color-paper-dim: #f3ecd6;
+    --color-ink: #12241c;
+    --color-ink-soft: #4b5d53;
+    --color-mist: #e9f1eb; */
     /* --color-line:'rgba(6, 79, 59, 0.14)'; */
-    --color-line:rgba(6, 79, 59, 0.14);
+    --color-line: rgba(6, 79, 59, 0.14);
 
     /* GEMINI */
-    --color-sage-soft: #D2E7DF;
-    --color-pale-yellow: #FFF2B2;
-    --color-coral-muted: #FAD2D2;
+    /* --color-sage-soft: #d2e7df;
+    --color-pale-yellow: #fff2b2;
+    --color-coral-muted: #fad2d2;
     --color-forest: #073324;
-    --color-terracotta: #C85A32; /* FIX: Diisi agar compiler tidak macet */
-    --color-aurum: #E5C423;
-    --color-charcoal: #1f2937; /* dipakai pilihan warna blok kit (Akordion, Unduhan, ...) */
+    --color-terracotta: #c85a32; /* FIX: Diisi agar compiler tidak macet */
+    /* --color-aurum: #e5c423;
+    --color-charcoal: #1f2937; dipakai pilihan warna blok kit (Akordion, Unduhan, ...) */
 }
 /* 1. Definisikan keyframes terlebih dahulu */
 @keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 /* 2. Buat class untuk masing-masing animasi */
 .animate-spin-slow {
-  animation: spin 90s linear infinite;
+    animation: spin 90s linear infinite;
 }
 
 .animate-spin-slower {
-  animation: spin 120s linear infinite;
+    animation: spin 120s linear infinite;
 }
 
 /* Elemen x-cloak disembunyikan sampai Alpine siap (menu mobile dan nav lengket di header memakainya). */
 [x-cloak] {
-  display: none !important;
+    display: none !important;
 }
 
 /* Animasi masuk blok CMS (rilis 78). Renderer blok (Judul, Paragraf, Eyebrow, Gambar, Kolom, Grup Langkah) memakai `reveal animate-scroll-reveal`;
    tanpa aturan ini elemen tidak punya transisi (transition-duration 0s) dan muncul mendadak. Skrip pemantaunya: contoh-kode/reveal-landing.js.snippet.
    Berada di layer components supaya utilitas opacity-100 / translate-y-0 yang dipasang skrip menang. */
 @layer components {
-  .animate-scroll-reveal {
-    @apply opacity-0 translate-y-6 transition-all duration-700 ease-out motion-reduce:transition-none;
-  }
+    .animate-scroll-reveal {
+        @apply opacity-0 translate-y-6 transition-all duration-700 ease-out motion-reduce:transition-none;
+    }
 }
