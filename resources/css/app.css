@@ -8,6 +8,12 @@
 @source '../../config';
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 /* PLUS JAKARTA SANS */
+@layer base {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: color-mix(in oklab, currentColor 35%, transparent) transparent;
+  }
+}
 @font-face {
     font-family: "Plus Jakarta Sans";
     src: url("../../public/fonts/plus-jakarta-sans/PlusJakartaSans-Regular.ttf")

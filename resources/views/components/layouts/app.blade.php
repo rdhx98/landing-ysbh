@@ -5,7 +5,7 @@
 
 </head>
 <body
-    class="bg-zinc-100 font-sans antialiased min-h-screen"
+    class="bg-zinc-100 font-sans antialiased min-h-screen scrollbar-thin **:scrollbar-thin"
     x-init="console.log('✅ Alpine.js Berhasil Dimuat dan Aktif dari app layout!')"
     >
 
